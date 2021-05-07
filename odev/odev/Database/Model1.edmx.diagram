@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61a0e01eed0b4376bdf2374666692ff1" Name="Diagram1">
+        <EntityTypeShape EntityType="test2Model.alt_kategori" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.kategori" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.kullanici" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.kullanici_skor" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.kullanici_soru_cevap" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.secenekler" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.sinav_tablo" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.soru" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.soru_secenek" Width="1.5" PointX="10.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="test2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="test2Model.FK_alt_kategori_kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_sinav_tablo_alt_kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_soru_alt_kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_sinav_tablo_kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_kullanici_skor_kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_kullanici_soru_cevap_kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_kullanici_soru_cevap_soru" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_kullanici_soru_cevap_soru_secenek" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_soru_secenek_secenekler" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_sinav_tablo_soru" ManuallyRouted="false" />
+        <AssociationConnector Association="test2Model.FK_soru_secenek_soru" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

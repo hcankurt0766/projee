@@ -1,0 +1,36 @@
+C:\Users\iekem\source\repos\odev\odev\bin\Debug\odev.exe.config
+C:\Users\iekem\source\repos\odev\odev\bin\Debug\odev.exe
+C:\Users\iekem\source\repos\odev\odev\bin\Debug\odev.pdb
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.csprojAssemblyReference.cache
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.Form1.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.Properties.Resources.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.csproj.GenerateResource.cache
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.csproj.CoreCompileInputs.cache
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.exe
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.pdb
+C:\Users\iekem\source\repos\odev\odev\bin\Debug\EntityFramework.dll
+C:\Users\iekem\source\repos\odev\odev\bin\Debug\EntityFramework.xml
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.csproj.CopyComplete
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.sifreni_unutum.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.AnaForm.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.kulaniciekle.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.kullanici_guncelle.resources
+C:\Users\iekem\source\repos\odev\odev\obj\Debug\odev.katagori_ekle.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.csprojAssemblyReference.cache
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.AnaForm.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.Form1.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.katagori_ekle.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.kulaniciekle.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.kullanici_guncelle.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.Properties.Resources.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.sifreni_unutum.resources
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.csproj.GenerateResource.cache
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.csproj.CoreCompileInputs.cache
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.exe
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.pdb
+D:\YAZILIM PROJE\odev\odev\bin\Debug\odev.exe.config
+D:\YAZILIM PROJE\odev\odev\bin\Debug\odev.exe
+D:\YAZILIM PROJE\odev\odev\bin\Debug\odev.pdb
+D:\YAZILIM PROJE\odev\odev\bin\Debug\EntityFramework.dll
+D:\YAZILIM PROJE\odev\odev\bin\Debug\EntityFramework.xml
+D:\YAZILIM PROJE\odev\odev\obj\Debug\odev.csproj.CopyComplete
