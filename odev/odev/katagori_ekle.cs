@@ -17,13 +17,15 @@ namespace odev
         {
             InitializeComponent();
         }
-        test2Entities1 db = new test2Entities1();
+        test2Entities2 db = new test2Entities2();
         private void katagori_ekle_Load(object sender, EventArgs e)
         {
             // TODO: Bu kod satırı 'test2DataSet7.kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.kategoriTableAdapter1.Fill(this.test2DataSet7.kategori);
+            this.kategoriTableAdapter.Fill(this.test2DataSet7.kategori);
+            // TODO: Bu kod satırı 'test2DataSet6.alt_kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.alt_kategoriTableAdapter1.Fill(this.test2DataSet6.alt_kategori);
+            // TODO: Bu kod satırı 'test2DataSet3.alt_kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             // TODO: Bu kod satırı 'test2DataSet2.kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-
             var veri = (from x in db.alt_kategori
                         select new
                         {
@@ -64,21 +66,13 @@ namespace odev
 
             db.kategori.Add(k);
             db.SaveChanges();
+
+            // TODO: Bu kod satırı 'test2DataSet7.kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.kategoriTableAdapter.Fill(this.test2DataSet7.kategori);
+            // TODO: Bu kod satırı 'test2DataSet6.alt_kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.alt_kategoriTableAdapter1.Fill(this.test2DataSet6.alt_kategori);
             MessageBox.Show("Katagori Eklenmiştir");
-            this.kategoriTableAdapter1.Fill(this.test2DataSet7.kategori);
-            var veri = (from x in db.alt_kategori
-                        select new
-                        {
-                            x.alt_kategori_ad,
-                            x.kategori.kategori_ad
-                        }
 
-                        ).ToList();
-
-
-
-
-            dataGridView1.DataSource = veri;
 
         }
 
@@ -89,8 +83,7 @@ namespace odev
             alt.alt_kategori_ad = textBox2.Text;
             db.alt_kategori.Add(alt);
             db.SaveChanges();
-            MessageBox.Show("Alt Katagori Başarıyla eklenmiştir ");
-            this.kategoriTableAdapter1.Fill(this.test2DataSet7.kategori);
+            MessageBox.Show("Alt Katagori Başarıylan eklenmiştir ");
             var veri = (from x in db.alt_kategori
                         select new
                         {
@@ -106,7 +99,14 @@ namespace odev
             dataGridView1.DataSource = veri;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

@@ -17,6 +17,7 @@ namespace odev.Database
         public soru()
         {
             this.kullanici_soru_cevap = new HashSet<kullanici_soru_cevap>();
+            this.secenekler = new HashSet<secenekler>();
             this.sinav_tablo = new HashSet<sinav_tablo>();
             this.soru_secenek = new HashSet<soru_secenek>();
         }
@@ -28,6 +29,7 @@ namespace odev.Database
     
         public virtual alt_kategori alt_kategori { get; set; }
         public virtual ICollection<kullanici_soru_cevap> kullanici_soru_cevap { get; set; }
+        public virtual ICollection<secenekler> secenekler { get; set; }
         public virtual ICollection<sinav_tablo> sinav_tablo { get; set; }
         public virtual ICollection<soru_secenek> soru_secenek { get; set; }
     }

@@ -17,7 +17,6 @@ namespace odev.Database
         public kategori()
         {
             this.alt_kategori = new HashSet<alt_kategori>();
-            this.sinav_tablo = new HashSet<sinav_tablo>();
         }
     
         public int kategori_id { get; set; }
@@ -25,6 +24,5 @@ namespace odev.Database
         public Nullable<bool> aktif { get; set; }
     
         public virtual ICollection<alt_kategori> alt_kategori { get; set; }
-        public virtual ICollection<sinav_tablo> sinav_tablo { get; set; }
     }
 }

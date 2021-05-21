@@ -18,7 +18,7 @@ namespace odev
         {
             InitializeComponent();
         }
-        test2Entities1 db = new test2Entities1();
+        test2Entities2 db = new test2Entities2();
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -62,10 +62,10 @@ namespace odev
                 MessageBox.Show("E posta bulunamıyor veya geçersiz");
                 saniye = 0;
             }
-            
-           
+
+
         }
-    private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             try
             {

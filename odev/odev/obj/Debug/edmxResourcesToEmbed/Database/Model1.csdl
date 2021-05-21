@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="test2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="test2Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="alt_kategori">
     <Key>
       <PropertyRef Name="alt_kategori_id" />
@@ -20,20 +20,19 @@
     <Property Name="kategori_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="aktif" Type="Boolean" />
     <NavigationProperty Name="alt_kategori" Relationship="Self.FK_alt_kategori_kategori" FromRole="kategori" ToRole="alt_kategori" />
-    <NavigationProperty Name="sinav_tablo" Relationship="Self.FK_sinav_tablo_kategori" FromRole="kategori" ToRole="sinav_tablo" />
   </EntityType>
   <EntityType Name="kullanici">
     <Key>
       <PropertyRef Name="kullanici_id" />
     </Key>
-    <Property Name="kullanici_id" Type="Int32" Nullable="false" />
+    <Property Name="kullanici_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="kullanici_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="kullanici_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="aktif" Type="Boolean" />
+    <Property Name="yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="kullanici_skor" Relationship="Self.FK_kullanici_skor_kullanici" FromRole="kullanici" ToRole="kullanici_skor" />
     <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_kullanici" FromRole="kullanici" ToRole="kullanici_soru_cevap" />
-    <Property Name="yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="kullanici_skor">
     <Key>
@@ -61,21 +60,20 @@
     <Key>
       <PropertyRef Name="secenek_id" />
     </Key>
-    <Property Name="secenek_id" Type="Int32" Nullable="false" />
+    <Property Name="secenek_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="secenekler1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="soru_id" Type="Int32" />
-    <Property Name="secenek" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="soru_secenek" Relationship="Self.FK_soru_secenek_secenekler" FromRole="secenekler" ToRole="soru_secenek" />
+    <NavigationProperty Name="soru" Relationship="Self.FK_secenekler_soru" FromRole="secenekler" ToRole="soru" />
   </EntityType>
   <EntityType Name="sinav_tablo">
     <Key>
       <PropertyRef Name="sinav_id" />
     </Key>
-    <Property Name="sinav_id" Type="Int32" Nullable="false" />
-    <Property Name="kategori_id" Type="Int32" />
+    <Property Name="sinav_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="alt_kategori_id" Type="Int32" />
     <Property Name="soru_id" Type="Int32" />
+    <Property Name="Sınav_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="alt_kategori" Relationship="Self.FK_sinav_tablo_alt_kategori" FromRole="sinav_tablo" ToRole="alt_kategori" />
-    <NavigationProperty Name="kategori" Relationship="Self.FK_sinav_tablo_kategori" FromRole="sinav_tablo" ToRole="kategori" />
     <NavigationProperty Name="soru" Relationship="Self.FK_sinav_tablo_soru" FromRole="sinav_tablo" ToRole="soru" />
   </EntityType>
   <EntityType Name="soru">
@@ -88,6 +86,7 @@
     <Property Name="aktif" Type="Boolean" />
     <NavigationProperty Name="alt_kategori" Relationship="Self.FK_soru_alt_kategori" FromRole="soru" ToRole="alt_kategori" />
     <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_soru" FromRole="soru" ToRole="kullanici_soru_cevap" />
+    <NavigationProperty Name="secenekler" Relationship="Self.FK_secenekler_soru" FromRole="soru" ToRole="secenekler" />
     <NavigationProperty Name="sinav_tablo" Relationship="Self.FK_sinav_tablo_soru" FromRole="soru" ToRole="sinav_tablo" />
     <NavigationProperty Name="soru_secenek" Relationship="Self.FK_soru_secenek_soru" FromRole="soru" ToRole="soru_secenek" />
   </EntityType>
@@ -95,12 +94,10 @@
     <Key>
       <PropertyRef Name="secim_id" />
     </Key>
-    <Property Name="secim_id" Type="Int32" Nullable="false" />
-    <Property Name="dogru_secim" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="secim_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="soru_id" Type="Int32" />
-    <Property Name="secenek_id" Type="Int32" />
+    <Property Name="dogru_cevap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_soru_secenek" FromRole="soru_secenek" ToRole="kullanici_soru_cevap" />
-    <NavigationProperty Name="secenekler" Relationship="Self.FK_soru_secenek_secenekler" FromRole="soru_secenek" ToRole="secenekler" />
     <NavigationProperty Name="soru" Relationship="Self.FK_soru_secenek_soru" FromRole="soru_secenek" ToRole="soru" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -146,18 +143,6 @@
       </Principal>
       <Dependent Role="soru">
         <PropertyRef Name="alt_kategori_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_sinav_tablo_kategori">
-    <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
-    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="kategori">
-        <PropertyRef Name="kategori_id" />
-      </Principal>
-      <Dependent Role="sinav_tablo">
-        <PropertyRef Name="kategori_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -209,15 +194,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_soru_secenek_secenekler">
-    <End Role="secenekler" Type="Self.secenekler" Multiplicity="0..1" />
-    <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="*" />
+  <Association Name="FK_secenekler_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="secenekler" Type="Self.secenekler" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="secenekler">
-        <PropertyRef Name="secenek_id" />
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
       </Principal>
-      <Dependent Role="soru_secenek">
-        <PropertyRef Name="secenek_id" />
+      <Dependent Role="secenekler">
+        <PropertyRef Name="soru_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -245,7 +230,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="test2Entities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="test2Entities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="alt_kategori" EntityType="Self.alt_kategori" />
     <EntitySet Name="kategori" EntityType="Self.kategori" />
     <EntitySet Name="kullanici" EntityType="Self.kullanici" />
@@ -268,10 +253,6 @@
       <End Role="alt_kategori" EntitySet="alt_kategori" />
       <End Role="soru" EntitySet="soru" />
     </AssociationSet>
-    <AssociationSet Name="FK_sinav_tablo_kategori" Association="Self.FK_sinav_tablo_kategori">
-      <End Role="kategori" EntitySet="kategori" />
-      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
-    </AssociationSet>
     <AssociationSet Name="FK_kullanici_skor_kullanici" Association="Self.FK_kullanici_skor_kullanici">
       <End Role="kullanici" EntitySet="kullanici" />
       <End Role="kullanici_skor" EntitySet="kullanici_skor" />
@@ -288,9 +269,9 @@
       <End Role="soru_secenek" EntitySet="soru_secenek" />
       <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
     </AssociationSet>
-    <AssociationSet Name="FK_soru_secenek_secenekler" Association="Self.FK_soru_secenek_secenekler">
+    <AssociationSet Name="FK_secenekler_soru" Association="Self.FK_secenekler_soru">
+      <End Role="soru" EntitySet="soru" />
       <End Role="secenekler" EntitySet="secenekler" />
-      <End Role="soru_secenek" EntitySet="soru_secenek" />
     </AssociationSet>
     <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
       <End Role="soru" EntitySet="soru" />
@@ -300,46 +281,5 @@
       <End Role="soru" EntitySet="soru" />
       <End Role="soru_secenek" EntitySet="soru_secenek" />
     </AssociationSet>
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(test2Model.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(test2Model.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
-  </ComplexType>
 </Schema>

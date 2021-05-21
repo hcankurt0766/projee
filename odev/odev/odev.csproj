@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -101,15 +102,10 @@
     <Compile Include="Database\soru_secenek.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Database\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="eposta.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,45 +139,72 @@
     <Compile Include="sifreni_unutum.Designer.cs">
       <DependentUpon>sifreni_unutum.cs</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet.xsd</DependentUpon>
+    <Compile Include="Soru_ekle.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test2DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet1.xsd</DependentUpon>
+    <Compile Include="Soru_ekle.Designer.cs">
+      <DependentUpon>Soru_ekle.cs</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet2.xsd</DependentUpon>
+    <Compile Include="sınav_olustur.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test2DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet3.xsd</DependentUpon>
+    <Compile Include="sınav_olustur.Designer.cs">
+      <DependentUpon>sınav_olustur.cs</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet4.Designer.cs">
+    <Compile Include="test2DataSet101.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet4.xsd</DependentUpon>
+      <DependentUpon>test2DataSet101.xsd</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet5.Designer.cs">
+    <Compile Include="test2DataSet16.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet5.xsd</DependentUpon>
+      <DependentUpon>test2DataSet16.xsd</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet6.Designer.cs">
+    <Compile Include="test2DataSet17.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet6.xsd</DependentUpon>
+      <DependentUpon>test2DataSet17.xsd</DependentUpon>
     </Compile>
-    <Compile Include="test2DataSet7.Designer.cs">
+    <Compile Include="test2DataSet21.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test2DataSet7.xsd</DependentUpon>
+      <DependentUpon>test2DataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet31.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet41.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet41.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet51.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet51.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet61.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet61.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet71.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet71.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet81.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet81.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test2DataSet91.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test2DataSet91.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AnaForm.resx">
       <DependentUpon>AnaForm.cs</DependentUpon>
@@ -210,6 +233,12 @@
     <EmbeddedResource Include="sifreni_unutum.resx">
       <DependentUpon>sifreni_unutum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Soru_ekle.resx">
+      <DependentUpon>Soru_ekle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sınav_olustur.resx">
+      <DependentUpon>sınav_olustur.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Database\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -227,93 +256,126 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="test2DataSet.xsc">
-      <DependentUpon>test2DataSet.xsd</DependentUpon>
+    <None Include="test2DataSet101.xsc">
+      <DependentUpon>test2DataSet101.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet.xsd">
+    <None Include="test2DataSet101.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet101.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet.xss">
-      <DependentUpon>test2DataSet.xsd</DependentUpon>
+    <None Include="test2DataSet101.xss">
+      <DependentUpon>test2DataSet101.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet1.xsc">
-      <DependentUpon>test2DataSet1.xsd</DependentUpon>
+    <None Include="test2DataSet16.xsc">
+      <DependentUpon>test2DataSet16.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet1.xsd">
+    <None Include="test2DataSet16.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet16.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet1.xss">
-      <DependentUpon>test2DataSet1.xsd</DependentUpon>
+    <None Include="test2DataSet16.xss">
+      <DependentUpon>test2DataSet16.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet2.xsc">
-      <DependentUpon>test2DataSet2.xsd</DependentUpon>
+    <None Include="test2DataSet17.xsc">
+      <DependentUpon>test2DataSet17.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet2.xsd">
+    <None Include="test2DataSet17.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet17.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet2.xss">
-      <DependentUpon>test2DataSet2.xsd</DependentUpon>
+    <None Include="test2DataSet17.xss">
+      <DependentUpon>test2DataSet17.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet3.xsc">
-      <DependentUpon>test2DataSet3.xsd</DependentUpon>
+    <None Include="test2DataSet21.xsc">
+      <DependentUpon>test2DataSet21.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet3.xsd">
+    <None Include="test2DataSet21.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet3.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet21.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet3.xss">
-      <DependentUpon>test2DataSet3.xsd</DependentUpon>
+    <None Include="test2DataSet21.xss">
+      <DependentUpon>test2DataSet21.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet4.xsc">
-      <DependentUpon>test2DataSet4.xsd</DependentUpon>
+    <None Include="test2DataSet31.xsc">
+      <DependentUpon>test2DataSet31.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet4.xsd">
+    <None Include="test2DataSet31.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet4.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet31.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet4.xss">
-      <DependentUpon>test2DataSet4.xsd</DependentUpon>
+    <None Include="test2DataSet31.xss">
+      <DependentUpon>test2DataSet31.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet5.xsc">
-      <DependentUpon>test2DataSet5.xsd</DependentUpon>
+    <None Include="test2DataSet41.xsc">
+      <DependentUpon>test2DataSet41.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet5.xsd">
+    <None Include="test2DataSet41.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet5.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet41.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet5.xss">
-      <DependentUpon>test2DataSet5.xsd</DependentUpon>
+    <None Include="test2DataSet41.xss">
+      <DependentUpon>test2DataSet41.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet6.xsc">
-      <DependentUpon>test2DataSet6.xsd</DependentUpon>
+    <None Include="test2DataSet51.xsc">
+      <DependentUpon>test2DataSet51.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet6.xsd">
+    <None Include="test2DataSet51.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet6.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet51.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet6.xss">
-      <DependentUpon>test2DataSet6.xsd</DependentUpon>
+    <None Include="test2DataSet51.xss">
+      <DependentUpon>test2DataSet51.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet7.xsc">
-      <DependentUpon>test2DataSet7.xsd</DependentUpon>
+    <None Include="test2DataSet61.xsc">
+      <DependentUpon>test2DataSet61.xsd</DependentUpon>
     </None>
-    <None Include="test2DataSet7.xsd">
+    <None Include="test2DataSet61.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test2DataSet7.Designer.cs</LastGenOutput>
+      <LastGenOutput>test2DataSet61.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="test2DataSet7.xss">
-      <DependentUpon>test2DataSet7.xsd</DependentUpon>
+    <None Include="test2DataSet61.xss">
+      <DependentUpon>test2DataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet71.xsc">
+      <DependentUpon>test2DataSet71.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet71.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>test2DataSet71.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="test2DataSet71.xss">
+      <DependentUpon>test2DataSet71.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet81.xsc">
+      <DependentUpon>test2DataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet81.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>test2DataSet81.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="test2DataSet81.xss">
+      <DependentUpon>test2DataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet91.xsc">
+      <DependentUpon>test2DataSet91.xsd</DependentUpon>
+    </None>
+    <None Include="test2DataSet91.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>test2DataSet91.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="test2DataSet91.xss">
+      <DependentUpon>test2DataSet91.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="test2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="test2Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="alt_kategori">
           <Key>
             <PropertyRef Name="alt_kategori_id" />
@@ -55,18 +55,18 @@
           <Key>
             <PropertyRef Name="secenek_id" />
           </Key>
-          <Property Name="secenek_id" Type="int" Nullable="false" />
+          <Property Name="secenek_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="secenekler" Type="varchar" MaxLength="500" />
           <Property Name="soru_id" Type="int" />
-          <Property Name="secenek" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="sinav_tablo">
           <Key>
             <PropertyRef Name="sinav_id" />
           </Key>
-          <Property Name="sinav_id" Type="int" Nullable="false" />
-          <Property Name="kategori_id" Type="int" />
+          <Property Name="sinav_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="alt_kategori_id" Type="int" />
           <Property Name="soru_id" Type="int" />
+          <Property Name="Sınav_ad" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="soru">
           <Key>
@@ -81,10 +81,9 @@
           <Key>
             <PropertyRef Name="secim_id" />
           </Key>
-          <Property Name="secim_id" Type="int" Nullable="false" />
-          <Property Name="dogru_secim" Type="nchar" MaxLength="10" />
+          <Property Name="secim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="soru_id" Type="int" />
-          <Property Name="secenek_id" Type="int" />
+          <Property Name="dogru_cevap" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -156,6 +155,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_secenekler_soru">
+          <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+          <End Role="secenekler" Type="Self.secenekler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soru">
+              <PropertyRef Name="soru_id" />
+            </Principal>
+            <Dependent Role="secenekler">
+              <PropertyRef Name="soru_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_sinav_tablo_alt_kategori">
           <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
           <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
@@ -165,18 +176,6 @@
             </Principal>
             <Dependent Role="sinav_tablo">
               <PropertyRef Name="alt_kategori_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_sinav_tablo_kategori">
-          <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
-          <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="kategori">
-              <PropertyRef Name="kategori_id" />
-            </Principal>
-            <Dependent Role="sinav_tablo">
-              <PropertyRef Name="kategori_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -204,18 +203,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_soru_secenek_secenekler">
-          <End Role="secenekler" Type="Self.secenekler" Multiplicity="0..1" />
-          <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="secenekler">
-              <PropertyRef Name="secenek_id" />
-            </Principal>
-            <Dependent Role="soru_secenek">
-              <PropertyRef Name="secenek_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_soru_secenek_soru">
           <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
           <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="*" />
@@ -228,38 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="test2ModelStoreContainer">
+        <EntityContainer Name="test2Model1StoreContainer">
           <EntitySet Name="alt_kategori" EntityType="Self.alt_kategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="kategori" EntityType="Self.kategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="kullanici" EntityType="Self.kullanici" Schema="dbo" store:Type="Tables" />
@@ -290,12 +246,12 @@
             <End Role="soru_secenek" EntitySet="soru_secenek" />
             <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
           </AssociationSet>
+          <AssociationSet Name="FK_secenekler_soru" Association="Self.FK_secenekler_soru">
+            <End Role="soru" EntitySet="soru" />
+            <End Role="secenekler" EntitySet="secenekler" />
+          </AssociationSet>
           <AssociationSet Name="FK_sinav_tablo_alt_kategori" Association="Self.FK_sinav_tablo_alt_kategori">
             <End Role="alt_kategori" EntitySet="alt_kategori" />
-            <End Role="sinav_tablo" EntitySet="sinav_tablo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_sinav_tablo_kategori" Association="Self.FK_sinav_tablo_kategori">
-            <End Role="kategori" EntitySet="kategori" />
             <End Role="sinav_tablo" EntitySet="sinav_tablo" />
           </AssociationSet>
           <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
@@ -306,10 +262,6 @@
             <End Role="alt_kategori" EntitySet="alt_kategori" />
             <End Role="soru" EntitySet="soru" />
           </AssociationSet>
-          <AssociationSet Name="FK_soru_secenek_secenekler" Association="Self.FK_soru_secenek_secenekler">
-            <End Role="secenekler" EntitySet="secenekler" />
-            <End Role="soru_secenek" EntitySet="soru_secenek" />
-          </AssociationSet>
           <AssociationSet Name="FK_soru_secenek_soru" Association="Self.FK_soru_secenek_soru">
             <End Role="soru" EntitySet="soru" />
             <End Role="soru_secenek" EntitySet="soru_secenek" />
@@ -318,7 +270,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="test2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="test2Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="alt_kategori">
           <Key>
             <PropertyRef Name="alt_kategori_id" />
@@ -339,20 +291,19 @@
           <Property Name="kategori_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="aktif" Type="Boolean" />
           <NavigationProperty Name="alt_kategori" Relationship="Self.FK_alt_kategori_kategori" FromRole="kategori" ToRole="alt_kategori" />
-          <NavigationProperty Name="sinav_tablo" Relationship="Self.FK_sinav_tablo_kategori" FromRole="kategori" ToRole="sinav_tablo" />
         </EntityType>
         <EntityType Name="kullanici">
           <Key>
             <PropertyRef Name="kullanici_id" />
           </Key>
-          <Property Name="kullanici_id" Type="Int32" Nullable="false" />
+          <Property Name="kullanici_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="kullanici_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="kullanici_sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aktif" Type="Boolean" />
+          <Property Name="yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="kullanici_skor" Relationship="Self.FK_kullanici_skor_kullanici" FromRole="kullanici" ToRole="kullanici_skor" />
           <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_kullanici" FromRole="kullanici" ToRole="kullanici_soru_cevap" />
-          <Property Name="yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="kullanici_skor">
           <Key>
@@ -380,21 +331,20 @@
           <Key>
             <PropertyRef Name="secenek_id" />
           </Key>
-          <Property Name="secenek_id" Type="Int32" Nullable="false" />
+          <Property Name="secenek_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="secenekler1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="soru_id" Type="Int32" />
-          <Property Name="secenek" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="soru_secenek" Relationship="Self.FK_soru_secenek_secenekler" FromRole="secenekler" ToRole="soru_secenek" />
+          <NavigationProperty Name="soru" Relationship="Self.FK_secenekler_soru" FromRole="secenekler" ToRole="soru" />
         </EntityType>
         <EntityType Name="sinav_tablo">
           <Key>
             <PropertyRef Name="sinav_id" />
           </Key>
-          <Property Name="sinav_id" Type="Int32" Nullable="false" />
-          <Property Name="kategori_id" Type="Int32" />
+          <Property Name="sinav_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="alt_kategori_id" Type="Int32" />
           <Property Name="soru_id" Type="Int32" />
+          <Property Name="Sınav_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="alt_kategori" Relationship="Self.FK_sinav_tablo_alt_kategori" FromRole="sinav_tablo" ToRole="alt_kategori" />
-          <NavigationProperty Name="kategori" Relationship="Self.FK_sinav_tablo_kategori" FromRole="sinav_tablo" ToRole="kategori" />
           <NavigationProperty Name="soru" Relationship="Self.FK_sinav_tablo_soru" FromRole="sinav_tablo" ToRole="soru" />
         </EntityType>
         <EntityType Name="soru">
@@ -407,6 +357,7 @@
           <Property Name="aktif" Type="Boolean" />
           <NavigationProperty Name="alt_kategori" Relationship="Self.FK_soru_alt_kategori" FromRole="soru" ToRole="alt_kategori" />
           <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_soru" FromRole="soru" ToRole="kullanici_soru_cevap" />
+          <NavigationProperty Name="secenekler" Relationship="Self.FK_secenekler_soru" FromRole="soru" ToRole="secenekler" />
           <NavigationProperty Name="sinav_tablo" Relationship="Self.FK_sinav_tablo_soru" FromRole="soru" ToRole="sinav_tablo" />
           <NavigationProperty Name="soru_secenek" Relationship="Self.FK_soru_secenek_soru" FromRole="soru" ToRole="soru_secenek" />
         </EntityType>
@@ -414,12 +365,10 @@
           <Key>
             <PropertyRef Name="secim_id" />
           </Key>
-          <Property Name="secim_id" Type="Int32" Nullable="false" />
-          <Property Name="dogru_secim" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="secim_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="soru_id" Type="Int32" />
-          <Property Name="secenek_id" Type="Int32" />
+          <Property Name="dogru_cevap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="kullanici_soru_cevap" Relationship="Self.FK_kullanici_soru_cevap_soru_secenek" FromRole="soru_secenek" ToRole="kullanici_soru_cevap" />
-          <NavigationProperty Name="secenekler" Relationship="Self.FK_soru_secenek_secenekler" FromRole="soru_secenek" ToRole="secenekler" />
           <NavigationProperty Name="soru" Relationship="Self.FK_soru_secenek_soru" FromRole="soru_secenek" ToRole="soru" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -465,18 +414,6 @@
             </Principal>
             <Dependent Role="soru">
               <PropertyRef Name="alt_kategori_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_sinav_tablo_kategori">
-          <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
-          <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="kategori">
-              <PropertyRef Name="kategori_id" />
-            </Principal>
-            <Dependent Role="sinav_tablo">
-              <PropertyRef Name="kategori_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -528,15 +465,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_soru_secenek_secenekler">
-          <End Role="secenekler" Type="Self.secenekler" Multiplicity="0..1" />
-          <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="*" />
+        <Association Name="FK_secenekler_soru">
+          <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+          <End Role="secenekler" Type="Self.secenekler" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="secenekler">
-              <PropertyRef Name="secenek_id" />
+            <Principal Role="soru">
+              <PropertyRef Name="soru_id" />
             </Principal>
-            <Dependent Role="soru_secenek">
-              <PropertyRef Name="secenek_id" />
+            <Dependent Role="secenekler">
+              <PropertyRef Name="soru_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -564,7 +501,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="test2Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="test2Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="alt_kategori" EntityType="Self.alt_kategori" />
           <EntitySet Name="kategori" EntityType="Self.kategori" />
           <EntitySet Name="kullanici" EntityType="Self.kullanici" />
@@ -587,10 +524,6 @@
             <End Role="alt_kategori" EntitySet="alt_kategori" />
             <End Role="soru" EntitySet="soru" />
           </AssociationSet>
-          <AssociationSet Name="FK_sinav_tablo_kategori" Association="Self.FK_sinav_tablo_kategori">
-            <End Role="kategori" EntitySet="kategori" />
-            <End Role="sinav_tablo" EntitySet="sinav_tablo" />
-          </AssociationSet>
           <AssociationSet Name="FK_kullanici_skor_kullanici" Association="Self.FK_kullanici_skor_kullanici">
             <End Role="kullanici" EntitySet="kullanici" />
             <End Role="kullanici_skor" EntitySet="kullanici_skor" />
@@ -607,9 +540,9 @@
             <End Role="soru_secenek" EntitySet="soru_secenek" />
             <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
           </AssociationSet>
-          <AssociationSet Name="FK_soru_secenek_secenekler" Association="Self.FK_soru_secenek_secenekler">
+          <AssociationSet Name="FK_secenekler_soru" Association="Self.FK_secenekler_soru">
+            <End Role="soru" EntitySet="soru" />
             <End Role="secenekler" EntitySet="secenekler" />
-            <End Role="soru_secenek" EntitySet="soru_secenek" />
           </AssociationSet>
           <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
             <End Role="soru" EntitySet="soru" />
@@ -619,56 +552,15 @@
             <End Role="soru" EntitySet="soru" />
             <End Role="soru_secenek" EntitySet="soru_secenek" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(test2Model.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(test2Model.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="test2ModelStoreContainer" CdmEntityContainer="test2Entities1">
+        <EntityContainerMapping StorageEntityContainer="test2Model1StoreContainer" CdmEntityContainer="test2Entities2">
           <EntitySetMapping Name="alt_kategori">
-            <EntityTypeMapping TypeName="test2Model.alt_kategori">
+            <EntityTypeMapping TypeName="test2Model1.alt_kategori">
               <MappingFragment StoreEntitySet="alt_kategori">
                 <ScalarProperty Name="alt_kategori_id" ColumnName="alt_kategori_id" />
                 <ScalarProperty Name="alt_kategori_ad" ColumnName="alt_kategori_ad" />
@@ -678,7 +570,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kategori">
-            <EntityTypeMapping TypeName="test2Model.kategori">
+            <EntityTypeMapping TypeName="test2Model1.kategori">
               <MappingFragment StoreEntitySet="kategori">
                 <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
                 <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
@@ -687,19 +579,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kullanici">
-            <EntityTypeMapping TypeName="test2Model.kullanici">
+            <EntityTypeMapping TypeName="test2Model1.kullanici">
               <MappingFragment StoreEntitySet="kullanici">
-                <ScalarProperty Name="yetki" ColumnName="yetki" />
                 <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
                 <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
                 <ScalarProperty Name="kullanici_mail" ColumnName="kullanici_mail" />
                 <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
                 <ScalarProperty Name="aktif" ColumnName="aktif" />
+                <ScalarProperty Name="yetki" ColumnName="yetki" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kullanici_skor">
-            <EntityTypeMapping TypeName="test2Model.kullanici_skor">
+            <EntityTypeMapping TypeName="test2Model1.kullanici_skor">
               <MappingFragment StoreEntitySet="kullanici_skor">
                 <ScalarProperty Name="skor_id" ColumnName="skor_id" />
                 <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
@@ -708,7 +600,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kullanici_soru_cevap">
-            <EntityTypeMapping TypeName="test2Model.kullanici_soru_cevap">
+            <EntityTypeMapping TypeName="test2Model1.kullanici_soru_cevap">
               <MappingFragment StoreEntitySet="kullanici_soru_cevap">
                 <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />
@@ -719,26 +611,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="secenekler">
-            <EntityTypeMapping TypeName="test2Model.secenekler">
+            <EntityTypeMapping TypeName="test2Model1.secenekler">
               <MappingFragment StoreEntitySet="secenekler">
                 <ScalarProperty Name="secenek_id" ColumnName="secenek_id" />
+                <ScalarProperty Name="secenekler1" ColumnName="secenekler" />
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />
-                <ScalarProperty Name="secenek" ColumnName="secenek" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sinav_tablo">
-            <EntityTypeMapping TypeName="test2Model.sinav_tablo">
+            <EntityTypeMapping TypeName="test2Model1.sinav_tablo">
               <MappingFragment StoreEntitySet="sinav_tablo">
                 <ScalarProperty Name="sinav_id" ColumnName="sinav_id" />
-                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
                 <ScalarProperty Name="alt_kategori_id" ColumnName="alt_kategori_id" />
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />
+                <ScalarProperty Name="Sınav_ad" ColumnName="Sınav_ad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="soru">
-            <EntityTypeMapping TypeName="test2Model.soru">
+            <EntityTypeMapping TypeName="test2Model1.soru">
               <MappingFragment StoreEntitySet="soru">
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />
                 <ScalarProperty Name="soru_ad" ColumnName="soru_ad" />
@@ -748,17 +640,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="soru_secenek">
-            <EntityTypeMapping TypeName="test2Model.soru_secenek">
+            <EntityTypeMapping TypeName="test2Model1.soru_secenek">
               <MappingFragment StoreEntitySet="soru_secenek">
                 <ScalarProperty Name="secim_id" ColumnName="secim_id" />
-                <ScalarProperty Name="dogru_secim" ColumnName="dogru_secim" />
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />
-                <ScalarProperty Name="secenek_id" ColumnName="secenek_id" />
+                <ScalarProperty Name="dogru_cevap" ColumnName="dogru_cevap" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="test2Model.sysdiagrams">
+            <EntityTypeMapping TypeName="test2Model1.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -768,30 +659,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="test2Model.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="test2Model.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="test2Model.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="test2Model.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="test2Model.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="test2Model.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="test2Model.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="test2Model.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="test2Model.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

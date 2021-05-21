@@ -20,12 +20,10 @@ namespace odev.Database
         }
     
         public int secim_id { get; set; }
-        public string dogru_secim { get; set; }
         public Nullable<int> soru_id { get; set; }
-        public Nullable<int> secenek_id { get; set; }
+        public string dogru_cevap { get; set; }
     
         public virtual ICollection<kullanici_soru_cevap> kullanici_soru_cevap { get; set; }
-        public virtual secenekler secenekler { get; set; }
         public virtual soru soru { get; set; }
     }
 }

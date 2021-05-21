@@ -31,6 +31,8 @@ namespace odev
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,29 +48,28 @@ namespace odev
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.kullaniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.test2DataSet = new odev.test2DataSet();
-            this.kullaniciTableAdapter = new odev.test2DataSetTableAdapters.kullaniciTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.test2DataSet5 = new odev.test2DataSet5();
+            this.test2DataSet = new odev.test2DataSet();
             this.kullaniciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kullaniciTableAdapter1 = new odev.test2DataSet5TableAdapters.kullaniciTableAdapter();
-            this.kullaniciidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kullaniciadiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kullanicimailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kullanicisifreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aktifDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.yetkiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kullaniciTableAdapter = new odev.test2DataSetTableAdapters.kullaniciTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button9);
+            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
@@ -82,21 +83,42 @@ namespace odev
             this.groupBox1.Text = "İşlemler";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(940, 15);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 34);
+            this.button9.TabIndex = 6;
+            this.button9.Text = "Sınav Oluştur";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(845, 15);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 34);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Soru Ekle";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Location = new System.Drawing.Point(383, 19);
+            this.button7.Location = new System.Drawing.Point(751, 15);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 35);
             this.button7.TabIndex = 4;
-            this.button7.Text = "Katagori Ekleme";
-            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Text = "Katagori ekle";
+            this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(293, 19);
+            this.button3.Location = new System.Drawing.Point(657, 15);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 35);
             this.button3.TabIndex = 3;
@@ -107,7 +129,7 @@ namespace odev
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(194, 19);
+            this.button2.Location = new System.Drawing.Point(558, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 35);
             this.button2.TabIndex = 2;
@@ -226,12 +248,12 @@ namespace odev
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.kullaniciidDataGridViewTextBoxColumn,
-            this.kullaniciadiDataGridViewTextBoxColumn,
-            this.kullanicimailDataGridViewTextBoxColumn,
-            this.kullanicisifreDataGridViewTextBoxColumn,
-            this.aktifDataGridViewCheckBoxColumn,
-            this.yetkiDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn5});
             this.dataGridView1.DataSource = this.kullaniciBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(80, 86);
             this.dataGridView1.Name = "dataGridView1";
@@ -243,72 +265,62 @@ namespace odev
             // kullaniciBindingSource
             // 
             this.kullaniciBindingSource.DataMember = "kullanici";
-            this.kullaniciBindingSource.DataSource = this.test2DataSet;
-            // 
-            // test2DataSet
-            // 
-            this.test2DataSet.DataSetName = "test2DataSet";
-            this.test2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kullaniciTableAdapter
-            // 
-            this.kullaniciTableAdapter.ClearBeforeFill = true;
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // test2DataSet5
+            // test2DataSet
             // 
-            this.test2DataSet5.DataSetName = "test2DataSet5";
-            this.test2DataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.test2DataSet.DataSetName = "test2DataSet";
+            this.test2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // kullaniciBindingSource1
             // 
             this.kullaniciBindingSource1.DataMember = "kullanici";
-            this.kullaniciBindingSource1.DataSource = this.test2DataSet5;
+            this.kullaniciBindingSource1.DataSource = this.test2DataSet;
             // 
-            // kullaniciTableAdapter1
+            // kullaniciTableAdapter
             // 
-            this.kullaniciTableAdapter1.ClearBeforeFill = true;
+            this.kullaniciTableAdapter.ClearBeforeFill = true;
             // 
-            // kullaniciidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.kullaniciidDataGridViewTextBoxColumn.DataPropertyName = "kullanici_id";
-            this.kullaniciidDataGridViewTextBoxColumn.HeaderText = "kullanici_id";
-            this.kullaniciidDataGridViewTextBoxColumn.Name = "kullaniciidDataGridViewTextBoxColumn";
-            this.kullaniciidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "kullanici_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "kullanici_id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // kullaniciadiDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.kullaniciadiDataGridViewTextBoxColumn.DataPropertyName = "kullanici_adi";
-            this.kullaniciadiDataGridViewTextBoxColumn.HeaderText = "kullanici_adi";
-            this.kullaniciadiDataGridViewTextBoxColumn.Name = "kullaniciadiDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "kullanici_adi";
+            this.dataGridViewTextBoxColumn2.HeaderText = "kullanici_adi";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // kullanicimailDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.kullanicimailDataGridViewTextBoxColumn.DataPropertyName = "kullanici_mail";
-            this.kullanicimailDataGridViewTextBoxColumn.HeaderText = "kullanici_mail";
-            this.kullanicimailDataGridViewTextBoxColumn.Name = "kullanicimailDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "kullanici_mail";
+            this.dataGridViewTextBoxColumn3.HeaderText = "kullanici_mail";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // kullanicisifreDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.kullanicisifreDataGridViewTextBoxColumn.DataPropertyName = "kullanici_sifre";
-            this.kullanicisifreDataGridViewTextBoxColumn.HeaderText = "kullanici_sifre";
-            this.kullanicisifreDataGridViewTextBoxColumn.Name = "kullanicisifreDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "kullanici_sifre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "kullanici_sifre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // aktifDataGridViewCheckBoxColumn
+            // dataGridViewCheckBoxColumn1
             // 
-            this.aktifDataGridViewCheckBoxColumn.DataPropertyName = "aktif";
-            this.aktifDataGridViewCheckBoxColumn.HeaderText = "aktif";
-            this.aktifDataGridViewCheckBoxColumn.Name = "aktifDataGridViewCheckBoxColumn";
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "aktif";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "aktif";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
-            // yetkiDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.yetkiDataGridViewTextBoxColumn.DataPropertyName = "yetki";
-            this.yetkiDataGridViewTextBoxColumn.HeaderText = "yetki";
-            this.yetkiDataGridViewTextBoxColumn.Name = "yetkiDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "yetki";
+            this.dataGridViewTextBoxColumn5.HeaderText = "yetki";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // AnaForm
             // 
@@ -327,7 +339,6 @@ namespace odev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -339,9 +350,13 @@ namespace odev
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private test2DataSet test2DataSet;
         private System.Windows.Forms.BindingSource kullaniciBindingSource;
-        private test2DataSetTableAdapters.kullaniciTableAdapter kullaniciTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicimailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicisifreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -353,15 +368,17 @@ namespace odev
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private test2DataSet5 test2DataSet5;
+        private System.Windows.Forms.Button button9;
+        private test2DataSet test2DataSet;
         private System.Windows.Forms.BindingSource kullaniciBindingSource1;
-        private test2DataSet5TableAdapters.kullaniciTableAdapter kullaniciTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicimailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicisifreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
+        private test2DataSetTableAdapters.kullaniciTableAdapter kullaniciTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

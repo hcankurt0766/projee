@@ -15,12 +15,11 @@ namespace odev.Database
     public partial class sinav_tablo
     {
         public int sinav_id { get; set; }
-        public Nullable<int> kategori_id { get; set; }
         public Nullable<int> alt_kategori_id { get; set; }
         public Nullable<int> soru_id { get; set; }
+        public string Sınav_ad { get; set; }
     
         public virtual alt_kategori alt_kategori { get; set; }
-        public virtual kategori kategori { get; set; }
         public virtual soru soru { get; set; }
     }
 }

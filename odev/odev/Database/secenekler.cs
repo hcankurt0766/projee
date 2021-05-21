@@ -14,15 +14,10 @@ namespace odev.Database
     
     public partial class secenekler
     {
-        public secenekler()
-        {
-            this.soru_secenek = new HashSet<soru_secenek>();
-        }
-    
         public int secenek_id { get; set; }
+        public string secenekler1 { get; set; }
         public Nullable<int> soru_id { get; set; }
-        public string secenek { get; set; }
     
-        public virtual ICollection<soru_secenek> soru_secenek { get; set; }
+        public virtual soru soru { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace odev {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class test2DataSet5 : global::System.Data.DataSet {
         
-        private kullaniciDataTable tablekullanici;
+        private kategoriDataTable tablekategori;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace odev {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["kullanici"] != null)) {
-                    base.Tables.Add(new kullaniciDataTable(ds.Tables["kullanici"]));
+                if ((ds.Tables["kategori"] != null)) {
+                    base.Tables.Add(new kategoriDataTable(ds.Tables["kategori"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace odev {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public kullaniciDataTable kullanici {
+        public kategoriDataTable kategori {
             get {
-                return this.tablekullanici;
+                return this.tablekategori;
             }
         }
         
@@ -152,8 +152,8 @@ namespace odev {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["kullanici"] != null)) {
-                    base.Tables.Add(new kullaniciDataTable(ds.Tables["kullanici"]));
+                if ((ds.Tables["kategori"] != null)) {
+                    base.Tables.Add(new kategoriDataTable(ds.Tables["kategori"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace odev {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablekullanici = ((kullaniciDataTable)(base.Tables["kullanici"]));
+            this.tablekategori = ((kategoriDataTable)(base.Tables["kategori"]));
             if ((initTable == true)) {
-                if ((this.tablekullanici != null)) {
-                    this.tablekullanici.InitVars();
+                if ((this.tablekategori != null)) {
+                    this.tablekategori.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace odev {
             this.Namespace = "http://tempuri.org/test2DataSet5.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablekullanici = new kullaniciDataTable();
-            base.Tables.Add(this.tablekullanici);
+            this.tablekategori = new kategoriDataTable();
+            base.Tables.Add(this.tablekategori);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializekullanici() {
+        private bool ShouldSerializekategori() {
             return false;
         }
         
@@ -270,31 +270,25 @@ namespace odev {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void kullaniciRowChangeEventHandler(object sender, kullaniciRowChangeEvent e);
+        public delegate void kategoriRowChangeEventHandler(object sender, kategoriRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class kullaniciDataTable : global::System.Data.TypedTableBase<kullaniciRow> {
+        public partial class kategoriDataTable : global::System.Data.TypedTableBase<kategoriRow> {
             
-            private global::System.Data.DataColumn columnkullanici_id;
+            private global::System.Data.DataColumn columnkategori_id;
             
-            private global::System.Data.DataColumn columnkullanici_adi;
-            
-            private global::System.Data.DataColumn columnkullanici_mail;
-            
-            private global::System.Data.DataColumn columnkullanici_sifre;
+            private global::System.Data.DataColumn columnkategori_ad;
             
             private global::System.Data.DataColumn columnaktif;
             
-            private global::System.Data.DataColumn columnyetki;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciDataTable() {
-                this.TableName = "kullanici";
+            public kategoriDataTable() {
+                this.TableName = "kategori";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +296,7 @@ namespace odev {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal kullaniciDataTable(global::System.Data.DataTable table) {
+            internal kategoriDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,40 +313,24 @@ namespace odev {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected kullaniciDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected kategoriDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kullanici_idColumn {
+            public global::System.Data.DataColumn kategori_idColumn {
                 get {
-                    return this.columnkullanici_id;
+                    return this.columnkategori_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kullanici_adiColumn {
+            public global::System.Data.DataColumn kategori_adColumn {
                 get {
-                    return this.columnkullanici_adi;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kullanici_mailColumn {
-                get {
-                    return this.columnkullanici_mail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kullanici_sifreColumn {
-                get {
-                    return this.columnkullanici_sifre;
+                    return this.columnkategori_ad;
                 }
             }
             
@@ -361,14 +339,6 @@ namespace odev {
             public global::System.Data.DataColumn aktifColumn {
                 get {
                     return this.columnaktif;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn yetkiColumn {
-                get {
-                    return this.columnyetki;
                 }
             }
             
@@ -383,57 +353,54 @@ namespace odev {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRow this[int index] {
+            public kategoriRow this[int index] {
                 get {
-                    return ((kullaniciRow)(this.Rows[index]));
+                    return ((kategoriRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event kullaniciRowChangeEventHandler kullaniciRowChanging;
+            public event kategoriRowChangeEventHandler kategoriRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event kullaniciRowChangeEventHandler kullaniciRowChanged;
+            public event kategoriRowChangeEventHandler kategoriRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event kullaniciRowChangeEventHandler kullaniciRowDeleting;
+            public event kategoriRowChangeEventHandler kategoriRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event kullaniciRowChangeEventHandler kullaniciRowDeleted;
+            public event kategoriRowChangeEventHandler kategoriRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddkullaniciRow(kullaniciRow row) {
+            public void AddkategoriRow(kategoriRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRow AddkullaniciRow(string kullanici_adi, string kullanici_mail, string kullanici_sifre, bool aktif, string yetki) {
-                kullaniciRow rowkullaniciRow = ((kullaniciRow)(this.NewRow()));
+            public kategoriRow AddkategoriRow(string kategori_ad, bool aktif) {
+                kategoriRow rowkategoriRow = ((kategoriRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        kullanici_adi,
-                        kullanici_mail,
-                        kullanici_sifre,
-                        aktif,
-                        yetki};
-                rowkullaniciRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowkullaniciRow);
-                return rowkullaniciRow;
+                        kategori_ad,
+                        aktif};
+                rowkategoriRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowkategoriRow);
+                return rowkategoriRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRow FindBykullanici_id(int kullanici_id) {
-                return ((kullaniciRow)(this.Rows.Find(new object[] {
-                            kullanici_id})));
+            public kategoriRow FindBykategori_id(int kategori_id) {
+                return ((kategoriRow)(this.Rows.Find(new object[] {
+                            kategori_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                kullaniciDataTable cln = ((kullaniciDataTable)(base.Clone()));
+                kategoriDataTable cln = ((kategoriDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -441,76 +408,61 @@ namespace odev {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new kullaniciDataTable();
+                return new kategoriDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnkullanici_id = base.Columns["kullanici_id"];
-                this.columnkullanici_adi = base.Columns["kullanici_adi"];
-                this.columnkullanici_mail = base.Columns["kullanici_mail"];
-                this.columnkullanici_sifre = base.Columns["kullanici_sifre"];
+                this.columnkategori_id = base.Columns["kategori_id"];
+                this.columnkategori_ad = base.Columns["kategori_ad"];
                 this.columnaktif = base.Columns["aktif"];
-                this.columnyetki = base.Columns["yetki"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnkullanici_id = new global::System.Data.DataColumn("kullanici_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkullanici_id);
-                this.columnkullanici_adi = new global::System.Data.DataColumn("kullanici_adi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkullanici_adi);
-                this.columnkullanici_mail = new global::System.Data.DataColumn("kullanici_mail", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkullanici_mail);
-                this.columnkullanici_sifre = new global::System.Data.DataColumn("kullanici_sifre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkullanici_sifre);
+                this.columnkategori_id = new global::System.Data.DataColumn("kategori_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkategori_id);
+                this.columnkategori_ad = new global::System.Data.DataColumn("kategori_ad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkategori_ad);
                 this.columnaktif = new global::System.Data.DataColumn("aktif", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaktif);
-                this.columnyetki = new global::System.Data.DataColumn("yetki", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnyetki);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnkullanici_id}, true));
-                this.columnkullanici_id.AutoIncrement = true;
-                this.columnkullanici_id.AutoIncrementSeed = -1;
-                this.columnkullanici_id.AutoIncrementStep = -1;
-                this.columnkullanici_id.AllowDBNull = false;
-                this.columnkullanici_id.ReadOnly = true;
-                this.columnkullanici_id.Unique = true;
-                this.columnkullanici_adi.AllowDBNull = false;
-                this.columnkullanici_adi.MaxLength = 50;
-                this.columnkullanici_mail.AllowDBNull = false;
-                this.columnkullanici_mail.MaxLength = 50;
-                this.columnkullanici_sifre.AllowDBNull = false;
-                this.columnkullanici_sifre.MaxLength = 50;
-                this.columnyetki.MaxLength = 50;
+                                this.columnkategori_id}, true));
+                this.columnkategori_id.AutoIncrement = true;
+                this.columnkategori_id.AutoIncrementSeed = -1;
+                this.columnkategori_id.AutoIncrementStep = -1;
+                this.columnkategori_id.AllowDBNull = false;
+                this.columnkategori_id.ReadOnly = true;
+                this.columnkategori_id.Unique = true;
+                this.columnkategori_ad.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRow NewkullaniciRow() {
-                return ((kullaniciRow)(this.NewRow()));
+            public kategoriRow NewkategoriRow() {
+                return ((kategoriRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new kullaniciRow(builder);
+                return new kategoriRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(kullaniciRow);
+                return typeof(kategoriRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.kullaniciRowChanged != null)) {
-                    this.kullaniciRowChanged(this, new kullaniciRowChangeEvent(((kullaniciRow)(e.Row)), e.Action));
+                if ((this.kategoriRowChanged != null)) {
+                    this.kategoriRowChanged(this, new kategoriRowChangeEvent(((kategoriRow)(e.Row)), e.Action));
                 }
             }
             
@@ -518,8 +470,8 @@ namespace odev {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.kullaniciRowChanging != null)) {
-                    this.kullaniciRowChanging(this, new kullaniciRowChangeEvent(((kullaniciRow)(e.Row)), e.Action));
+                if ((this.kategoriRowChanging != null)) {
+                    this.kategoriRowChanging(this, new kategoriRowChangeEvent(((kategoriRow)(e.Row)), e.Action));
                 }
             }
             
@@ -527,8 +479,8 @@ namespace odev {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.kullaniciRowDeleted != null)) {
-                    this.kullaniciRowDeleted(this, new kullaniciRowChangeEvent(((kullaniciRow)(e.Row)), e.Action));
+                if ((this.kategoriRowDeleted != null)) {
+                    this.kategoriRowDeleted(this, new kategoriRowChangeEvent(((kategoriRow)(e.Row)), e.Action));
                 }
             }
             
@@ -536,14 +488,14 @@ namespace odev {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.kullaniciRowDeleting != null)) {
-                    this.kullaniciRowDeleting(this, new kullaniciRowChangeEvent(((kullaniciRow)(e.Row)), e.Action));
+                if ((this.kategoriRowDeleting != null)) {
+                    this.kategoriRowDeleting(this, new kategoriRowChangeEvent(((kategoriRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovekullaniciRow(kullaniciRow row) {
+            public void RemovekategoriRow(kategoriRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -570,7 +522,7 @@ namespace odev {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "kullaniciDataTable";
+                attribute2.FixedValue = "kategoriDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -614,58 +566,41 @@ namespace odev {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class kullaniciRow : global::System.Data.DataRow {
+        public partial class kategoriRow : global::System.Data.DataRow {
             
-            private kullaniciDataTable tablekullanici;
+            private kategoriDataTable tablekategori;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal kullaniciRow(global::System.Data.DataRowBuilder rb) : 
+            internal kategoriRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablekullanici = ((kullaniciDataTable)(this.Table));
+                this.tablekategori = ((kategoriDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int kullanici_id {
+            public int kategori_id {
                 get {
-                    return ((int)(this[this.tablekullanici.kullanici_idColumn]));
+                    return ((int)(this[this.tablekategori.kategori_idColumn]));
                 }
                 set {
-                    this[this.tablekullanici.kullanici_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string kullanici_adi {
-                get {
-                    return ((string)(this[this.tablekullanici.kullanici_adiColumn]));
-                }
-                set {
-                    this[this.tablekullanici.kullanici_adiColumn] = value;
+                    this[this.tablekategori.kategori_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string kullanici_mail {
+            public string kategori_ad {
                 get {
-                    return ((string)(this[this.tablekullanici.kullanici_mailColumn]));
+                    try {
+                        return ((string)(this[this.tablekategori.kategori_adColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'kategori\' tablosundaki \'kategori_ad\' sütunun değeri DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablekullanici.kullanici_mailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string kullanici_sifre {
-                get {
-                    return ((string)(this[this.tablekullanici.kullanici_sifreColumn]));
-                }
-                set {
-                    this[this.tablekullanici.kullanici_sifreColumn] = value;
+                    this[this.tablekategori.kategori_adColumn] = value;
                 }
             }
             
@@ -674,55 +609,39 @@ namespace odev {
             public bool aktif {
                 get {
                     try {
-                        return ((bool)(this[this.tablekullanici.aktifColumn]));
+                        return ((bool)(this[this.tablekategori.aktifColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'kullanici\' tablosundaki \'aktif\' sütunun değeri DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("\'kategori\' tablosundaki \'aktif\' sütunun değeri DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablekullanici.aktifColumn] = value;
+                    this[this.tablekategori.aktifColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string yetki {
-                get {
-                    try {
-                        return ((string)(this[this.tablekullanici.yetkiColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'kullanici\' tablosundaki \'yetki\' sütunun değeri DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablekullanici.yetkiColumn] = value;
-                }
+            public bool Iskategori_adNull() {
+                return this.IsNull(this.tablekategori.kategori_adColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setkategori_adNull() {
+                this[this.tablekategori.kategori_adColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsaktifNull() {
-                return this.IsNull(this.tablekullanici.aktifColumn);
+                return this.IsNull(this.tablekategori.aktifColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetaktifNull() {
-                this[this.tablekullanici.aktifColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsyetkiNull() {
-                return this.IsNull(this.tablekullanici.yetkiColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetyetkiNull() {
-                this[this.tablekullanici.yetkiColumn] = global::System.Convert.DBNull;
+                this[this.tablekategori.aktifColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -730,22 +649,22 @@ namespace odev {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class kullaniciRowChangeEvent : global::System.EventArgs {
+        public class kategoriRowChangeEvent : global::System.EventArgs {
             
-            private kullaniciRow eventRow;
+            private kategoriRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRowChangeEvent(kullaniciRow row, global::System.Data.DataRowAction action) {
+            public kategoriRowChangeEvent(kategoriRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kullaniciRow Row {
+            public kategoriRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -773,7 +692,7 @@ namespace odev.test2DataSet5TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class kullaniciTableAdapter : global::System.ComponentModel.Component {
+    public partial class kategoriTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -787,7 +706,7 @@ namespace odev.test2DataSet5TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public kullaniciTableAdapter() {
+        public kategoriTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -884,62 +803,51 @@ namespace odev.test2DataSet5TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "kullanici";
-            tableMapping.ColumnMappings.Add("kullanici_id", "kullanici_id");
-            tableMapping.ColumnMappings.Add("kullanici_adi", "kullanici_adi");
-            tableMapping.ColumnMappings.Add("kullanici_mail", "kullanici_mail");
-            tableMapping.ColumnMappings.Add("kullanici_sifre", "kullanici_sifre");
+            tableMapping.DataSetTable = "kategori";
+            tableMapping.ColumnMappings.Add("kategori_id", "kategori_id");
+            tableMapping.ColumnMappings.Add("kategori_ad", "kategori_ad");
             tableMapping.ColumnMappings.Add("aktif", "aktif");
-            tableMapping.ColumnMappings.Add("yetki", "yetki");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[kullanici] WHERE (([kullanici_id] = @Original_kullanici_id) AND ([kullanici_adi] = @Original_kullanici_adi) AND ([kullanici_mail] = @Original_kullanici_mail) AND ([kullanici_sifre] = @Original_kullanici_sifre) AND ((@IsNull_aktif = 1 AND [aktif] IS NULL) OR ([aktif] = @Original_aktif)) AND ((@IsNull_yetki = 1 AND [yetki] IS NULL) OR ([yetki] = @Original_yetki)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[kategori] WHERE (([kategori_id] = @Original_kategori_id) AND (" +
+                "(@IsNull_kategori_ad = 1 AND [kategori_ad] IS NULL) OR ([kategori_ad] = @Origina" +
+                "l_kategori_ad)) AND ((@IsNull_aktif = 1 AND [aktif] IS NULL) OR ([aktif] = @Orig" +
+                "inal_aktif)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_adi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_mail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_mail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_sifre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_sifre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kategori_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kategori_ad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kategori_ad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_aktif", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_aktif", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yetki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yetki", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[kullanici] ([kullanici_adi], [kullanici_mail], [kullanici_sifre], [aktif], [yetki]) VALUES (@kullanici_adi, @kullanici_mail, @kullanici_sifre, @aktif, @yetki);
-SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetki FROM kullanici WHERE (kullanici_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[kategori] ([kategori_ad], [aktif]) VALUES (@kategori_ad, @akti" +
+                "f);\r\nSELECT kategori_id, kategori_ad, aktif FROM kategori WHERE (kategori_id = S" +
+                "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_adi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_mail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_sifre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_sifre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kategori_ad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@aktif", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yetki", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[kullanici] SET [kullanici_adi] = @kullanici_adi, [kullanici_mail] = @kullanici_mail, [kullanici_sifre] = @kullanici_sifre, [aktif] = @aktif, [yetki] = @yetki WHERE (([kullanici_id] = @Original_kullanici_id) AND ([kullanici_adi] = @Original_kullanici_adi) AND ([kullanici_mail] = @Original_kullanici_mail) AND ([kullanici_sifre] = @Original_kullanici_sifre) AND ((@IsNull_aktif = 1 AND [aktif] IS NULL) OR ([aktif] = @Original_aktif)) AND ((@IsNull_yetki = 1 AND [yetki] IS NULL) OR ([yetki] = @Original_yetki)));
-SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetki FROM kullanici WHERE (kullanici_id = @kullanici_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[kategori] SET [kategori_ad] = @kategori_ad, [aktif] = @aktif WHERE (([kategori_id] = @Original_kategori_id) AND ((@IsNull_kategori_ad = 1 AND [kategori_ad] IS NULL) OR ([kategori_ad] = @Original_kategori_ad)) AND ((@IsNull_aktif = 1 AND [aktif] IS NULL) OR ([aktif] = @Original_aktif)));
+SELECT kategori_id, kategori_ad, aktif FROM kategori WHERE (kategori_id = @kategori_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_adi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_mail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_sifre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_sifre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kategori_ad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@aktif", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yetki", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_adi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_mail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_mail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kullanici_sifre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_sifre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kategori_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kategori_ad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kategori_ad", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_ad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_aktif", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_aktif", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktif", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yetki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yetki", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yetki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kullanici_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "kullanici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kategori_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "kategori_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::odev.Properties.Settings.Default.test2ConnectionString1;
+            this._connection.ConnectionString = global::odev.Properties.Settings.Default.test2ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -948,8 +856,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetki" +
-                " FROM dbo.kullanici";
+            this._commandCollection[0].CommandText = "SELECT kategori_id, kategori_ad, aktif FROM dbo.kategori";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -957,7 +864,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(test2DataSet5.kullaniciDataTable dataTable) {
+        public virtual int Fill(test2DataSet5.kategoriDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -970,9 +877,9 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual test2DataSet5.kullaniciDataTable GetData() {
+        public virtual test2DataSet5.kategoriDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            test2DataSet5.kullaniciDataTable dataTable = new test2DataSet5.kullaniciDataTable();
+            test2DataSet5.kategoriDataTable dataTable = new test2DataSet5.kategoriDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -980,7 +887,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(test2DataSet5.kullaniciDataTable dataTable) {
+        public virtual int Update(test2DataSet5.kategoriDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -988,7 +895,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(test2DataSet5 dataSet) {
-            return this.Adapter.Update(dataSet, "kullanici");
+            return this.Adapter.Update(dataSet, "kategori");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1010,41 +917,23 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_kullanici_id, string Original_kullanici_adi, string Original_kullanici_mail, string Original_kullanici_sifre, global::System.Nullable<bool> Original_aktif, string Original_yetki) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_kullanici_id));
-            if ((Original_kullanici_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_adi");
+        public virtual int Delete(int Original_kategori_id, string Original_kategori_ad, global::System.Nullable<bool> Original_aktif) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_kategori_id));
+            if ((Original_kategori_ad == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_kullanici_adi));
-            }
-            if ((Original_kullanici_mail == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_mail");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_kullanici_mail));
-            }
-            if ((Original_kullanici_sifre == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_sifre");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_kullanici_sifre));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_kategori_ad));
             }
             if ((Original_aktif.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_aktif.Value));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_aktif.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_yetki == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_yetki));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1066,36 +955,18 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string kullanici_adi, string kullanici_mail, string kullanici_sifre, global::System.Nullable<bool> aktif, string yetki) {
-            if ((kullanici_adi == null)) {
-                throw new global::System.ArgumentNullException("kullanici_adi");
+        public virtual int Insert(string kategori_ad, global::System.Nullable<bool> aktif) {
+            if ((kategori_ad == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(kullanici_adi));
-            }
-            if ((kullanici_mail == null)) {
-                throw new global::System.ArgumentNullException("kullanici_mail");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(kullanici_mail));
-            }
-            if ((kullanici_sifre == null)) {
-                throw new global::System.ArgumentNullException("kullanici_sifre");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(kullanici_sifre));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(kategori_ad));
             }
             if ((aktif.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(aktif.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((bool)(aktif.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((yetki == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(yetki));
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1117,73 +988,37 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string kullanici_adi, string kullanici_mail, string kullanici_sifre, global::System.Nullable<bool> aktif, string yetki, int Original_kullanici_id, string Original_kullanici_adi, string Original_kullanici_mail, string Original_kullanici_sifre, global::System.Nullable<bool> Original_aktif, string Original_yetki, int kullanici_id) {
-            if ((kullanici_adi == null)) {
-                throw new global::System.ArgumentNullException("kullanici_adi");
+        public virtual int Update(string kategori_ad, global::System.Nullable<bool> aktif, int Original_kategori_id, string Original_kategori_ad, global::System.Nullable<bool> Original_aktif, int kategori_id) {
+            if ((kategori_ad == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(kullanici_adi));
-            }
-            if ((kullanici_mail == null)) {
-                throw new global::System.ArgumentNullException("kullanici_mail");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(kullanici_mail));
-            }
-            if ((kullanici_sifre == null)) {
-                throw new global::System.ArgumentNullException("kullanici_sifre");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(kullanici_sifre));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(kategori_ad));
             }
             if ((aktif.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(aktif.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((bool)(aktif.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((yetki == null)) {
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_kategori_id));
+            if ((Original_kategori_ad == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(yetki));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_kullanici_id));
-            if ((Original_kullanici_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_adi");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_kullanici_adi));
-            }
-            if ((Original_kullanici_mail == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_mail");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_kullanici_mail));
-            }
-            if ((Original_kullanici_sifre == null)) {
-                throw new global::System.ArgumentNullException("Original_kullanici_sifre");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_kullanici_sifre));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_kategori_ad));
             }
             if ((Original_aktif.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Original_aktif.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Original_aktif.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_yetki == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_yetki));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(kullanici_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(kategori_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1204,8 +1039,8 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string kullanici_adi, string kullanici_mail, string kullanici_sifre, global::System.Nullable<bool> aktif, string yetki, int Original_kullanici_id, string Original_kullanici_adi, string Original_kullanici_mail, string Original_kullanici_sifre, global::System.Nullable<bool> Original_aktif, string Original_yetki) {
-            return this.Update(kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetki, Original_kullanici_id, Original_kullanici_adi, Original_kullanici_mail, Original_kullanici_sifre, Original_aktif, Original_yetki, Original_kullanici_id);
+        public virtual int Update(string kategori_ad, global::System.Nullable<bool> aktif, int Original_kategori_id, string Original_kategori_ad, global::System.Nullable<bool> Original_aktif) {
+            return this.Update(kategori_ad, aktif, Original_kategori_id, Original_kategori_ad, Original_aktif, Original_kategori_id);
         }
     }
     
@@ -1221,7 +1056,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         
         private UpdateOrderOption _updateOrder;
         
-        private kullaniciTableAdapter _kullaniciTableAdapter;
+        private kategoriTableAdapter _kategoriTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1243,12 +1078,12 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public kullaniciTableAdapter kullaniciTableAdapter {
+        public kategoriTableAdapter kategoriTableAdapter {
             get {
-                return this._kullaniciTableAdapter;
+                return this._kategoriTableAdapter;
             }
             set {
-                this._kullaniciTableAdapter = value;
+                this._kategoriTableAdapter = value;
             }
         }
         
@@ -1271,9 +1106,9 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._kullaniciTableAdapter != null) 
-                            && (this._kullaniciTableAdapter.Connection != null))) {
-                    return this._kullaniciTableAdapter.Connection;
+                if (((this._kategoriTableAdapter != null) 
+                            && (this._kategoriTableAdapter.Connection != null))) {
+                    return this._kategoriTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1288,7 +1123,7 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._kullaniciTableAdapter != null)) {
+                if ((this._kategoriTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1302,12 +1137,12 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(test2DataSet5 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._kullaniciTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.kullanici.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._kategoriTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.kategori.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._kullaniciTableAdapter.Update(updatedRows));
+                    result = (result + this._kategoriTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1321,11 +1156,11 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(test2DataSet5 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._kullaniciTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.kullanici.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._kategoriTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.kategori.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._kullaniciTableAdapter.Update(addedRows));
+                    result = (result + this._kategoriTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1339,11 +1174,11 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(test2DataSet5 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._kullaniciTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.kullanici.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._kategoriTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.kategori.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._kullaniciTableAdapter.Update(deletedRows));
+                    result = (result + this._kategoriTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1386,8 +1221,8 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._kullaniciTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._kullaniciTableAdapter.Connection) == false))) {
+            if (((this._kategoriTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._kategoriTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager tarafından yönetilen tüm TableAdapter\'lar aynı bağlantı dizes" +
                         "ini kullanmalıdır.");
             }
@@ -1423,13 +1258,13 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._kullaniciTableAdapter != null)) {
-                    revertConnections.Add(this._kullaniciTableAdapter, this._kullaniciTableAdapter.Connection);
-                    this._kullaniciTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._kullaniciTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._kullaniciTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._kullaniciTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._kullaniciTableAdapter.Adapter);
+                if ((this._kategoriTableAdapter != null)) {
+                    revertConnections.Add(this._kategoriTableAdapter, this._kategoriTableAdapter.Connection);
+                    this._kategoriTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._kategoriTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._kategoriTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._kategoriTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._kategoriTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1490,9 +1325,9 @@ SELECT kullanici_id, kullanici_adi, kullanici_mail, kullanici_sifre, aktif, yetk
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._kullaniciTableAdapter != null)) {
-                    this._kullaniciTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._kullaniciTableAdapter]));
-                    this._kullaniciTableAdapter.Transaction = null;
+                if ((this._kategoriTableAdapter != null)) {
+                    this._kategoriTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._kategoriTableAdapter]));
+                    this._kategoriTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -17,13 +17,12 @@ namespace odev
         {
             InitializeComponent();
         }
-        test2Entities1 db = new test2Entities1();
+        test2Entities2 db = new test2Entities2();
         private void kullanici_guncelle_Load(object sender, EventArgs e)
         {
-            // TODO: Bu kod satırı 'test2DataSet6.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.kullaniciTableAdapter1.Fill(this.test2DataSet6.kullanici);
+            // TODO: Bu kod satırı 'test2DataSet4.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.kullaniciTableAdapter.Fill(this.test2DataSet4.kullanici);
             // TODO: Bu kod satırı 'test2DataSet1.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            
 
         }
 
@@ -47,9 +46,9 @@ namespace odev
             deger.yetki = comboBox1.Text;
 
             db.SaveChanges();
+            this.kullaniciTableAdapter.Fill(this.test2DataSet4.kullanici);
 
-            MessageBox.Show("Başarıyla güncelemiştir ");
-            this.kullaniciTableAdapter1.Fill(this.test2DataSet6.kullanici);
+            MessageBox.Show("Başarıylan güncelemiştir ");
         }
         
 

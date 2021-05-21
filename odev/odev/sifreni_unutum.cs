@@ -18,13 +18,13 @@ namespace odev
         {
             InitializeComponent();
         }
-        test2Entities1 db = new test2Entities1();
+        test2Entities2 db = new test2Entities2();
 
         private void button1_Click(object sender, EventArgs e)
         {
             kullanici sorgu = (from c in db.kullanici
-                        where c.kullanici_mail == textBox1.Text
-                        select c).FirstOrDefault();
+                               where c.kullanici_mail == textBox1.Text
+                               select c).FirstOrDefault();
 
 
             if (sorgu != null)

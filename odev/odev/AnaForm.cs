@@ -17,13 +17,12 @@ namespace odev
         {
             InitializeComponent();
         }
-       
+        test2Entities2 db = new test2Entities2();
         private void AnaForm_Load(object sender, EventArgs e)
         {
-            // TODO: Bu kod satırı 'test2DataSet5.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.kullaniciTableAdapter1.Fill(this.test2DataSet5.kullanici);
             // TODO: Bu kod satırı 'test2DataSet.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-
+            this.kullaniciTableAdapter.Fill(this.test2DataSet.kullanici);
+            // TODO: Bu kod satırı 'test2DataSet.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
 
             label1.Text = session.kullaniciad + "-" + session.Yetki;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -37,8 +36,8 @@ namespace odev
         Form1 fmr1 = new Form1();
         private void button1_Click(object sender, EventArgs e)
         {
-           
-           
+
+
             session.kullaniciad = null;
             session.Yetki = null;
             this.Hide();
@@ -60,19 +59,18 @@ namespace odev
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
                 label3.Text = row.Cells[0].Value.ToString();
-               
-               
+
+
 
             }
         }
-        test2Entities1 db = new test2Entities1();
+        
         private void button4_Click(object sender, EventArgs e)
         {
             var blog = db.kullanici.Find(int.Parse(label3.Text));
             db.kullanici.Remove(blog);
             db.SaveChanges();
-            MessageBox.Show("Kullanıcı Başarıyla Silindi ");
-            
+            MessageBox.Show("Kulanıc Başarıylan Silindi ");
 
         }
 
@@ -89,14 +87,14 @@ namespace odev
                 fmr1.Show();
                 timer1.Stop();
             }
-            if (session.aktif=="False")
+            if (session.aktif == "False")
             {
                 this.Hide();
                 fmr1.Show();
-                MessageBox.Show("Hesabınız Aktif Değildir admin ile iletişime geçiniz");
+                MessageBox.Show("Hesanınız Aktif Değildir admin ile iletişime geçiniz");
                 timer1.Stop();
             }
-            
+
 
         }
 
@@ -128,7 +126,7 @@ namespace odev
 
                         MessageBox.Show("Aradığınız İsim Bulunamadı");
                     }
-                    
+
                 }
             }
             catch (Exception exc)
@@ -137,15 +135,30 @@ namespace odev
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            katagori_ekle ktgrekle = new katagori_ekle();
-            ktgrekle.Show();
-        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.kullaniciTableAdapter1.Fill(this.test2DataSet5.kullanici);
+            this.kullaniciTableAdapter.Fill(this.test2DataSet.kullanici);
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            katagori_ekle ktgr = new katagori_ekle();
+            ktgr.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Soru_ekle sorekle = new Soru_ekle();
+            sorekle.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            sınav_olustur snvolustur = new sınav_olustur();
+            snvolustur.Show();
         }
     }
 }

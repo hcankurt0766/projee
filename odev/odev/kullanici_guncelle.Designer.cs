@@ -47,24 +47,23 @@ namespace odev
             this.sifre = new System.Windows.Forms.TextBox();
             this.kad = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.kullaniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.test2DataSet1 = new odev.test2DataSet1();
-            this.kullaniciTableAdapter = new odev.test2DataSet1TableAdapters.kullaniciTableAdapter();
-            this.test2DataSet6 = new odev.test2DataSet6();
-            this.kullaniciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kullaniciTableAdapter1 = new odev.test2DataSet6TableAdapters.kullaniciTableAdapter();
             this.kullaniciidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullaniciadiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullanicimailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullanicisifreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aktifDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.yetkiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kullaniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.test2DataSet1 = new odev.test2DataSet1();
+            this.test2DataSet4 = new odev.test2DataSet4();
+            this.kullaniciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.kullaniciTableAdapter = new odev.test2DataSet4TableAdapters.kullaniciTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.test2DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -250,34 +249,6 @@ namespace odev
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // kullaniciBindingSource
-            // 
-            this.kullaniciBindingSource.DataMember = "kullanici";
-            this.kullaniciBindingSource.DataSource = this.test2DataSet1;
-            // 
-            // test2DataSet1
-            // 
-            this.test2DataSet1.DataSetName = "test2DataSet1";
-            this.test2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kullaniciTableAdapter
-            // 
-            this.kullaniciTableAdapter.ClearBeforeFill = true;
-            // 
-            // test2DataSet6
-            // 
-            this.test2DataSet6.DataSetName = "test2DataSet6";
-            this.test2DataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kullaniciBindingSource1
-            // 
-            this.kullaniciBindingSource1.DataMember = "kullanici";
-            this.kullaniciBindingSource1.DataSource = this.test2DataSet6;
-            // 
-            // kullaniciTableAdapter1
-            // 
-            this.kullaniciTableAdapter1.ClearBeforeFill = true;
-            // 
             // kullaniciidDataGridViewTextBoxColumn
             // 
             this.kullaniciidDataGridViewTextBoxColumn.DataPropertyName = "kullanici_id";
@@ -315,6 +286,30 @@ namespace odev
             this.yetkiDataGridViewTextBoxColumn.HeaderText = "yetki";
             this.yetkiDataGridViewTextBoxColumn.Name = "yetkiDataGridViewTextBoxColumn";
             // 
+            // kullaniciBindingSource
+            // 
+            this.kullaniciBindingSource.DataMember = "kullanici";
+            this.kullaniciBindingSource.DataSource = this.test2DataSet1;
+            // 
+            // test2DataSet1
+            // 
+            this.test2DataSet1.DataSetName = "test2DataSet1";
+            this.test2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // test2DataSet4
+            // 
+            this.test2DataSet4.DataSetName = "test2DataSet4";
+            this.test2DataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kullaniciBindingSource1
+            // 
+            this.kullaniciBindingSource1.DataMember = "kullanici";
+            this.kullaniciBindingSource1.DataSource = this.test2DataSet4;
+            // 
+            // kullaniciTableAdapter
+            // 
+            this.kullaniciTableAdapter.ClearBeforeFill = true;
+            // 
             // kullanici_guncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,8 +326,7 @@ namespace odev
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -358,15 +352,14 @@ namespace odev
         private System.Windows.Forms.DataGridView dataGridView1;
         private test2DataSet1 test2DataSet1;
         private System.Windows.Forms.BindingSource kullaniciBindingSource;
-        private test2DataSet1TableAdapters.kullaniciTableAdapter kullaniciTableAdapter;
-        private test2DataSet6 test2DataSet6;
-        private System.Windows.Forms.BindingSource kullaniciBindingSource1;
-        private test2DataSet6TableAdapters.kullaniciTableAdapter kullaniciTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kullanicimailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kullanicisifreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
+        private test2DataSet4 test2DataSet4;
+        private System.Windows.Forms.BindingSource kullaniciBindingSource1;
+        private test2DataSet4TableAdapters.kullaniciTableAdapter kullaniciTableAdapter;
     }
 }
