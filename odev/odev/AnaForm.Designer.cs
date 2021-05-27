@@ -47,23 +47,23 @@ namespace odev
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.kullaniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.test2DataSet = new odev.test2DataSet();
-            this.kullaniciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kullaniciTableAdapter = new odev.test2DataSetTableAdapters.kullaniciTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kullaniciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.test2DataSet = new odev.test2DataSet();
+            this.kullaniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.kullaniciTableAdapter = new odev.test2DataSetTableAdapters.kullaniciTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,34 +85,37 @@ namespace odev
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button9.Location = new System.Drawing.Point(940, 15);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 34);
             this.button9.TabIndex = 6;
             this.button9.Text = "Sınav Oluştur";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button8.Location = new System.Drawing.Point(845, 15);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 34);
             this.button8.TabIndex = 5;
             this.button8.Text = "Soru Ekle";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button7.Location = new System.Drawing.Point(751, 15);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 35);
             this.button7.TabIndex = 4;
             this.button7.Text = "Katagori ekle";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button3
@@ -262,29 +265,6 @@ namespace odev
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // kullaniciBindingSource
-            // 
-            this.kullaniciBindingSource.DataMember = "kullanici";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // test2DataSet
-            // 
-            this.test2DataSet.DataSetName = "test2DataSet";
-            this.test2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kullaniciBindingSource1
-            // 
-            this.kullaniciBindingSource1.DataMember = "kullanici";
-            this.kullaniciBindingSource1.DataSource = this.test2DataSet;
-            // 
-            // kullaniciTableAdapter
-            // 
-            this.kullaniciTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "kullanici_id";
@@ -322,6 +302,29 @@ namespace odev
             this.dataGridViewTextBoxColumn5.HeaderText = "yetki";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // kullaniciBindingSource1
+            // 
+            this.kullaniciBindingSource1.DataMember = "kullanici";
+            this.kullaniciBindingSource1.DataSource = this.test2DataSet;
+            // 
+            // test2DataSet
+            // 
+            this.test2DataSet.DataSetName = "test2DataSet";
+            this.test2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kullaniciBindingSource
+            // 
+            this.kullaniciBindingSource.DataMember = "kullanici";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // kullaniciTableAdapter
+            // 
+            this.kullaniciTableAdapter.ClearBeforeFill = true;
+            // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,9 +340,9 @@ namespace odev
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.test2DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kullaniciBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
