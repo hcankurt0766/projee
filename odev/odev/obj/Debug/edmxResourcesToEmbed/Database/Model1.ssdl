@@ -32,7 +32,7 @@
     <Key>
       <PropertyRef Name="skor_id" />
     </Key>
-    <Property Name="skor_id" Type="int" Nullable="false" />
+    <Property Name="skor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="kullanici_id" Type="int" />
     <Property Name="eniyi_skor" Type="int" />
   </EntityType>
@@ -79,16 +79,6 @@
     <Property Name="secim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="soru_id" Type="int" />
     <Property Name="dogru_cevap" Type="varchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_alt_kategori_kategori">
     <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
@@ -186,6 +176,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_sinav_tablo_soru1">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="sinav_tablo">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_soru_alt_kategori">
     <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
     <End Role="soru" Type="Self.soru" Multiplicity="*" />
@@ -220,7 +222,6 @@
     <EntitySet Name="sinav_tablo" EntityType="Self.sinav_tablo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="soru" EntityType="Self.soru" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="soru_secenek" EntityType="Self.soru_secenek" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_alt_kategori_kategori" Association="Self.FK_alt_kategori_kategori">
       <End Role="kategori" EntitySet="kategori" />
       <End Role="alt_kategori" EntitySet="alt_kategori" />
@@ -250,6 +251,10 @@
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>
     <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinav_tablo_soru1" Association="Self.FK_sinav_tablo_soru1">
       <End Role="soru" EntitySet="soru" />
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>

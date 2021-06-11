@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="test2Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alt_kategori">
+    <Key>
+      <PropertyRef Name="alt_kategori_id" />
+    </Key>
+    <Property Name="alt_kategori_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alt_kategori_ad" Type="varchar" MaxLength="50" />
+    <Property Name="kategori_id" Type="int" />
+    <Property Name="aktif" Type="bit" />
+  </EntityType>
+  <EntityType Name="kategori">
+    <Key>
+      <PropertyRef Name="kategori_id" />
+    </Key>
+    <Property Name="kategori_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kategori_ad" Type="varchar" MaxLength="50" />
+    <Property Name="aktif" Type="bit" />
+  </EntityType>
+  <EntityType Name="kullanici">
+    <Key>
+      <PropertyRef Name="kullanici_id" />
+    </Key>
+    <Property Name="kullanici_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanici_adi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="kullanici_mail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="kullanici_sifre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="aktif" Type="bit" />
+    <Property Name="yetki" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kullanici_skor">
+    <Key>
+      <PropertyRef Name="skor_id" />
+    </Key>
+    <Property Name="skor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanici_id" Type="int" />
+    <Property Name="eniyi_skor" Type="int" />
+  </EntityType>
+  <EntityType Name="kullanici_soru_cevap">
+    <Key>
+      <PropertyRef Name="kullanici_id" />
+    </Key>
+    <Property Name="kullanici_id" Type="int" Nullable="false" />
+    <Property Name="soru_id" Type="int" />
+    <Property Name="secim_id" Type="int" />
+    <Property Name="secim" Type="nchar" MaxLength="10" />
+    <Property Name="skor" Type="int" />
+  </EntityType>
+  <EntityType Name="secenekler">
+    <Key>
+      <PropertyRef Name="secenek_id" />
+    </Key>
+    <Property Name="secenek_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="secenekler" Type="varchar" MaxLength="500" />
+    <Property Name="soru_id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="sinav_kullanici">
+          <Property Name="sinav_id" Type="int" />
+          <Property Name="kullanici_id" Type="int" />
+        </EntityType>-->
+  <EntityType Name="sinav_tablo">
+    <Key>
+      <PropertyRef Name="sinav_id" />
+    </Key>
+    <Property Name="sinav_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alt_kategori_id" Type="int" />
+    <Property Name="soru_id" Type="int" />
+    <Property Name="Sınav_ad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="soru">
+    <Key>
+      <PropertyRef Name="soru_id" />
+    </Key>
+    <Property Name="soru_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soru_ad" Type="varchar" MaxLength="50" />
+    <Property Name="alt_kategori_id" Type="int" />
+    <Property Name="aktif" Type="bit" />
+  </EntityType>
+  <EntityType Name="soru_secenek">
+    <Key>
+      <PropertyRef Name="secim_id" />
+    </Key>
+    <Property Name="secim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soru_id" Type="int" />
+    <Property Name="dogru_cevap" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_alt_kategori_kategori">
+    <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
+    <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori">
+        <PropertyRef Name="kategori_id" />
+      </Principal>
+      <Dependent Role="alt_kategori">
+        <PropertyRef Name="kategori_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kullanici_skor_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="0..1" />
+    <End Role="kullanici_skor" Type="Self.kullanici_skor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="kullanici_id" />
+      </Principal>
+      <Dependent Role="kullanici_skor">
+        <PropertyRef Name="kullanici_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kullanici_soru_cevap_kullanici">
+    <End Role="kullanici" Type="Self.kullanici" Multiplicity="1" />
+    <End Role="kullanici_soru_cevap" Type="Self.kullanici_soru_cevap" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici">
+        <PropertyRef Name="kullanici_id" />
+      </Principal>
+      <Dependent Role="kullanici_soru_cevap">
+        <PropertyRef Name="kullanici_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kullanici_soru_cevap_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="kullanici_soru_cevap" Type="Self.kullanici_soru_cevap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="kullanici_soru_cevap">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kullanici_soru_cevap_soru_secenek">
+    <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="0..1" />
+    <End Role="kullanici_soru_cevap" Type="Self.kullanici_soru_cevap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru_secenek">
+        <PropertyRef Name="secim_id" />
+      </Principal>
+      <Dependent Role="kullanici_soru_cevap">
+        <PropertyRef Name="secim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_secenekler_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="secenekler" Type="Self.secenekler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="secenekler">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_sinav_kullanici_kullanici" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_sinav_kullanici_sinav_tablo" />-->
+  <Association Name="FK_sinav_tablo_alt_kategori">
+    <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
+    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alt_kategori">
+        <PropertyRef Name="alt_kategori_id" />
+      </Principal>
+      <Dependent Role="sinav_tablo">
+        <PropertyRef Name="alt_kategori_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sinav_tablo_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="sinav_tablo">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_soru_alt_kategori">
+    <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
+    <End Role="soru" Type="Self.soru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alt_kategori">
+        <PropertyRef Name="alt_kategori_id" />
+      </Principal>
+      <Dependent Role="soru">
+        <PropertyRef Name="alt_kategori_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_soru_secenek_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="soru_secenek" Type="Self.soru_secenek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="soru_secenek">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="test2Model1StoreContainer">
+    <EntitySet Name="alt_kategori" EntityType="Self.alt_kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kategori" EntityType="Self.kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanici" EntityType="Self.kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanici_skor" EntityType="Self.kullanici_skor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanici_soru_cevap" EntityType="Self.kullanici_soru_cevap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="secenekler" EntityType="Self.secenekler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinav_tablo" EntityType="Self.sinav_tablo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soru" EntityType="Self.soru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soru_secenek" EntityType="Self.soru_secenek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_alt_kategori_kategori" Association="Self.FK_alt_kategori_kategori">
+      <End Role="kategori" EntitySet="kategori" />
+      <End Role="alt_kategori" EntitySet="alt_kategori" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kullanici_skor_kullanici" Association="Self.FK_kullanici_skor_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="kullanici_skor" EntitySet="kullanici_skor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kullanici_soru_cevap_kullanici" Association="Self.FK_kullanici_soru_cevap_kullanici">
+      <End Role="kullanici" EntitySet="kullanici" />
+      <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kullanici_soru_cevap_soru" Association="Self.FK_kullanici_soru_cevap_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kullanici_soru_cevap_soru_secenek" Association="Self.FK_kullanici_soru_cevap_soru_secenek">
+      <End Role="soru_secenek" EntitySet="soru_secenek" />
+      <End Role="kullanici_soru_cevap" EntitySet="kullanici_soru_cevap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_secenekler_soru" Association="Self.FK_secenekler_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="secenekler" EntitySet="secenekler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinav_tablo_alt_kategori" Association="Self.FK_sinav_tablo_alt_kategori">
+      <End Role="alt_kategori" EntitySet="alt_kategori" />
+      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_soru_alt_kategori" Association="Self.FK_soru_alt_kategori">
+      <End Role="alt_kategori" EntitySet="alt_kategori" />
+      <End Role="soru" EntitySet="soru" />
+    </AssociationSet>
+    <AssociationSet Name="FK_soru_secenek_soru" Association="Self.FK_soru_secenek_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="soru_secenek" EntitySet="soru_secenek" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
