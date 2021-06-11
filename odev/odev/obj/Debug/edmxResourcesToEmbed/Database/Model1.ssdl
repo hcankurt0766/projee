@@ -54,6 +54,12 @@
     <Property Name="secenekler" Type="varchar" MaxLength="500" />
     <Property Name="soru_id" Type="int" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="sinav_kullanici">
+          <Property Name="sinav_id" Type="int" />
+          <Property Name="kullanici_id" Type="int" />
+        </EntityType>-->
   <EntityType Name="sinav_tablo">
     <Key>
       <PropertyRef Name="sinav_id" />
@@ -79,6 +85,16 @@
     <Property Name="secim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="soru_id" Type="int" />
     <Property Name="dogru_cevap" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_alt_kategori_kategori">
     <End Role="kategori" Type="Self.kategori" Multiplicity="0..1" />
@@ -152,6 +168,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_sinav_kullanici_kullanici" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_sinav_kullanici_sinav_tablo" />-->
   <Association Name="FK_sinav_tablo_alt_kategori">
     <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
     <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
@@ -165,18 +187,6 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_sinav_tablo_soru">
-    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
-    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="soru">
-        <PropertyRef Name="soru_id" />
-      </Principal>
-      <Dependent Role="sinav_tablo">
-        <PropertyRef Name="soru_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_sinav_tablo_soru1">
     <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
     <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -222,6 +232,7 @@
     <EntitySet Name="sinav_tablo" EntityType="Self.sinav_tablo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="soru" EntityType="Self.soru" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="soru_secenek" EntityType="Self.soru_secenek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_alt_kategori_kategori" Association="Self.FK_alt_kategori_kategori">
       <End Role="kategori" EntitySet="kategori" />
       <End Role="alt_kategori" EntitySet="alt_kategori" />
@@ -251,10 +262,6 @@
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>
     <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
-      <End Role="soru" EntitySet="soru" />
-      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_sinav_tablo_soru1" Association="Self.FK_sinav_tablo_soru1">
       <End Role="soru" EntitySet="soru" />
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>
