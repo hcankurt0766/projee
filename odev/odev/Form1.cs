@@ -25,7 +25,7 @@ namespace odev
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

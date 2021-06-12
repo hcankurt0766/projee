@@ -38,9 +38,10 @@ namespace odev
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 62);
+            this.textBox1.Location = new System.Drawing.Point(20, 62);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 20);
+            this.textBox1.Size = new System.Drawing.Size(352, 37);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox1
@@ -48,9 +49,9 @@ namespace odev
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(213, 48);
+            this.groupBox1.Location = new System.Drawing.Point(201, 94);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(286, 242);
+            this.groupBox1.Size = new System.Drawing.Size(429, 242);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Şifremi Unutum";
@@ -58,12 +59,14 @@ namespace odev
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Fuchsia;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(20, 105);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(245, 23);
+            this.button1.Size = new System.Drawing.Size(352, 39);
             this.button1.TabIndex = 2;
             this.button1.Text = "Gönder";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
@@ -82,7 +85,10 @@ namespace odev
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "sifreni_unutum";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sifreni_unutum";
             this.Load += new System.EventHandler(this.sifreni_unutum_Load);
             this.groupBox1.ResumeLayout(false);

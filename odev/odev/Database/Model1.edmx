@@ -40,6 +40,7 @@
           <Property Name="skor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kullanici_id" Type="int" />
           <Property Name="eniyi_skor" Type="int" />
+          <Property Name="sinav_adi" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="kullanici_soru_cevap">
           <Key>
@@ -59,12 +60,6 @@
           <Property Name="secenekler" Type="varchar" MaxLength="500" />
           <Property Name="soru_id" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="sinav_kullanici">
-          <Property Name="sinav_id" Type="int" />
-          <Property Name="kullanici_id" Type="int" />
-        </EntityType>-->
         <EntityType Name="sinav_tablo">
           <Key>
             <PropertyRef Name="sinav_id" />
@@ -73,6 +68,7 @@ warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary
           <Property Name="alt_kategori_id" Type="int" />
           <Property Name="soru_id" Type="int" />
           <Property Name="Sınav_ad" Type="varchar" MaxLength="50" />
+          <Property Name="dk" Type="int" />
         </EntityType>
         <EntityType Name="soru">
           <Key>
@@ -173,12 +169,6 @@ warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_sinav_kullanici_kullanici" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_sinav_kullanici_sinav_tablo" />-->
         <Association Name="FK_sinav_tablo_alt_kategori">
           <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
           <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
@@ -192,6 +182,18 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_sinav_tablo_soru">
+          <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+          <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soru">
+              <PropertyRef Name="soru_id" />
+            </Principal>
+            <Dependent Role="sinav_tablo">
+              <PropertyRef Name="soru_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sinav_tablo_soru1">
           <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
           <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,6 +272,10 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
             <End Role="soru" EntitySet="soru" />
             <End Role="sinav_tablo" EntitySet="sinav_tablo" />
           </AssociationSet>
+          <AssociationSet Name="FK_sinav_tablo_soru1" Association="Self.FK_sinav_tablo_soru1">
+            <End Role="soru" EntitySet="soru" />
+            <End Role="sinav_tablo" EntitySet="sinav_tablo" />
+          </AssociationSet>
           <AssociationSet Name="FK_soru_alt_kategori" Association="Self.FK_soru_alt_kategori">
             <End Role="alt_kategori" EntitySet="alt_kategori" />
             <End Role="soru" EntitySet="soru" />
@@ -325,6 +331,7 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
           <Property Name="kullanici_id" Type="Int32" />
           <Property Name="eniyi_skor" Type="Int32" />
           <NavigationProperty Name="kullanici" Relationship="Self.FK_kullanici_skor_kullanici" FromRole="kullanici_skor" ToRole="kullanici" />
+          <Property Name="sinav_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="kullanici_soru_cevap">
           <Key>
@@ -358,6 +365,7 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
           <Property Name="Sınav_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="alt_kategori" Relationship="Self.FK_sinav_tablo_alt_kategori" FromRole="sinav_tablo" ToRole="alt_kategori" />
           <NavigationProperty Name="soru" Relationship="Self.FK_sinav_tablo_soru" FromRole="sinav_tablo" ToRole="soru" />
+          <Property Name="dk" Type="Int32" />
         </EntityType>
         <EntityType Name="soru">
           <Key>
@@ -605,6 +613,7 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
           <EntitySetMapping Name="kullanici_skor">
             <EntityTypeMapping TypeName="test2Model1.kullanici_skor">
               <MappingFragment StoreEntitySet="kullanici_skor">
+                <ScalarProperty Name="sinav_adi" ColumnName="sinav_adi" />
                 <ScalarProperty Name="skor_id" ColumnName="skor_id" />
                 <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
                 <ScalarProperty Name="eniyi_skor" ColumnName="eniyi_skor" />
@@ -634,6 +643,7 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
           <EntitySetMapping Name="sinav_tablo">
             <EntityTypeMapping TypeName="test2Model1.sinav_tablo">
               <MappingFragment StoreEntitySet="sinav_tablo">
+                <ScalarProperty Name="dk" ColumnName="dk" />
                 <ScalarProperty Name="sinav_id" ColumnName="sinav_id" />
                 <ScalarProperty Name="alt_kategori_id" ColumnName="alt_kategori_id" />
                 <ScalarProperty Name="soru_id" ColumnName="soru_id" />

@@ -22,7 +22,7 @@ namespace odev
         {
             // TODO: Bu kod satırı 'test2DataSet1.kullanici' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.kullaniciTableAdapter.Fill(this.test2DataSet1.kullanici);
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

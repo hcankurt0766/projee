@@ -42,6 +42,7 @@
     <Property Name="kullanici_id" Type="Int32" />
     <Property Name="eniyi_skor" Type="Int32" />
     <NavigationProperty Name="kullanici" Relationship="Self.FK_kullanici_skor_kullanici" FromRole="kullanici_skor" ToRole="kullanici" />
+    <Property Name="sinav_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="kullanici_soru_cevap">
     <Key>
@@ -75,6 +76,7 @@
     <Property Name="Sınav_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="alt_kategori" Relationship="Self.FK_sinav_tablo_alt_kategori" FromRole="sinav_tablo" ToRole="alt_kategori" />
     <NavigationProperty Name="soru" Relationship="Self.FK_sinav_tablo_soru" FromRole="sinav_tablo" ToRole="soru" />
+    <Property Name="dk" Type="Int32" />
   </EntityType>
   <EntityType Name="soru">
     <Key>

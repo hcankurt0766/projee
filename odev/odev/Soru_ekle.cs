@@ -22,7 +22,7 @@ namespace odev
 
         private void Soru_ekle_Load(object sender, EventArgs e)
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
             // TODO: Bu kod satırı 'test2DataSet13.soru' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.soruTableAdapter1.Fill(this.test2DataSet13.soru);
             // TODO: Bu kod satırı 'test2DataSet10.soru' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.

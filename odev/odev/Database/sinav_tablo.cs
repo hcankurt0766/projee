@@ -18,6 +18,7 @@ namespace odev.Database
         public Nullable<int> alt_kategori_id { get; set; }
         public Nullable<int> soru_id { get; set; }
         public string Sınav_ad { get; set; }
+        public Nullable<int> dk { get; set; }
     
         public virtual alt_kategori alt_kategori { get; set; }
         public virtual soru soru { get; set; }

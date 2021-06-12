@@ -17,6 +17,7 @@ namespace odev.Database
         public int skor_id { get; set; }
         public Nullable<int> kullanici_id { get; set; }
         public Nullable<int> eniyi_skor { get; set; }
+        public string sinav_adi { get; set; }
     
         public virtual kullanici kullanici { get; set; }
     }

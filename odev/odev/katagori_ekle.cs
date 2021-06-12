@@ -20,7 +20,7 @@ namespace odev
         test2Entities2 db = new test2Entities2();
         private void katagori_ekle_Load(object sender, EventArgs e)
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
             // TODO: Bu kod satırı 'test2DataSet2.kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.kategoriTableAdapter.Fill(this.test2DataSet2.kategori);
             var veri = (from x in db.alt_kategori

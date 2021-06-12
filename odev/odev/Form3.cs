@@ -22,14 +22,14 @@ namespace odev
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
             var veri = (from x in db.kullanici_skor
 
                         select new
                         {
                             x.kullanici.kullanici_adi,
-                            x.eniyi_skor
-
+                            x.eniyi_skor,
+                            x.sinav_adi
                         }
 
                                  ).ToList();

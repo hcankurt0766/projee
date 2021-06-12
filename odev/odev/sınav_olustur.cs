@@ -21,7 +21,7 @@ namespace odev
 
         private void sınav_olustur_Load(object sender, EventArgs e)
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
             // TODO: Bu kod satırı 'test2DataSet15.alt_kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             // TODO: Bu kod satırı 'test2DataSet14.kategori' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.alt_kategoriTableAdapter.Fill(this.test2DataSet15.alt_kategori);
@@ -94,7 +94,7 @@ namespace odev
 
 
             stablo.Sınav_ad = textBox2.Text;
-
+            stablo.dk = Convert.ToInt32( numericUpDown1.Value);
 
             foreach (var x in listaltkatagoriid)
             {

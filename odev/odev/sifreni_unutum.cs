@@ -53,7 +53,7 @@ namespace odev
         private void sifreni_unutum_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

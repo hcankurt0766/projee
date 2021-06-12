@@ -27,7 +27,7 @@ namespace odev
         private void kulaniciekle_Load(object sender, EventArgs e)
         {
             groupBox3.Visible = false;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
         }
 
         int onay;

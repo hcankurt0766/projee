@@ -35,6 +35,7 @@
     <EntitySetMapping Name="kullanici_skor">
       <EntityTypeMapping TypeName="test2Model1.kullanici_skor">
         <MappingFragment StoreEntitySet="kullanici_skor">
+          <ScalarProperty Name="sinav_adi" ColumnName="sinav_adi" />
           <ScalarProperty Name="skor_id" ColumnName="skor_id" />
           <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
           <ScalarProperty Name="eniyi_skor" ColumnName="eniyi_skor" />
@@ -64,6 +65,7 @@
     <EntitySetMapping Name="sinav_tablo">
       <EntityTypeMapping TypeName="test2Model1.sinav_tablo">
         <MappingFragment StoreEntitySet="sinav_tablo">
+          <ScalarProperty Name="dk" ColumnName="dk" />
           <ScalarProperty Name="sinav_id" ColumnName="sinav_id" />
           <ScalarProperty Name="alt_kategori_id" ColumnName="alt_kategori_id" />
           <ScalarProperty Name="soru_id" ColumnName="soru_id" />

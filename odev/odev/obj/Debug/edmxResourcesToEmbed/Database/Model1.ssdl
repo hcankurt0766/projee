@@ -35,6 +35,7 @@
     <Property Name="skor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="kullanici_id" Type="int" />
     <Property Name="eniyi_skor" Type="int" />
+    <Property Name="sinav_adi" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="kullanici_soru_cevap">
     <Key>
@@ -54,12 +55,6 @@
     <Property Name="secenekler" Type="varchar" MaxLength="500" />
     <Property Name="soru_id" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="sinav_kullanici">
-          <Property Name="sinav_id" Type="int" />
-          <Property Name="kullanici_id" Type="int" />
-        </EntityType>-->
   <EntityType Name="sinav_tablo">
     <Key>
       <PropertyRef Name="sinav_id" />
@@ -68,6 +63,7 @@ warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary
     <Property Name="alt_kategori_id" Type="int" />
     <Property Name="soru_id" Type="int" />
     <Property Name="Sınav_ad" Type="varchar" MaxLength="50" />
+    <Property Name="dk" Type="int" />
   </EntityType>
   <EntityType Name="soru">
     <Key>
@@ -168,12 +164,6 @@ warning 6013: The table/view 'test2.dbo.sinav_kullanici' does not have a primary
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_sinav_kullanici_kullanici" />-->
-  <!--Errors Found During Generation:
-error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_sinav_kullanici_sinav_tablo" />-->
   <Association Name="FK_sinav_tablo_alt_kategori">
     <End Role="alt_kategori" Type="Self.alt_kategori" Multiplicity="0..1" />
     <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
@@ -187,6 +177,18 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_sinav_tablo_soru">
+    <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
+    <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="soru">
+        <PropertyRef Name="soru_id" />
+      </Principal>
+      <Dependent Role="sinav_tablo">
+        <PropertyRef Name="soru_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sinav_tablo_soru1">
     <End Role="soru" Type="Self.soru" Multiplicity="0..1" />
     <End Role="sinav_tablo" Type="Self.sinav_tablo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -262,6 +264,10 @@ error 6004: The table 'test2.dbo.sinav_kullanici' is referenced by a relationshi
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>
     <AssociationSet Name="FK_sinav_tablo_soru" Association="Self.FK_sinav_tablo_soru">
+      <End Role="soru" EntitySet="soru" />
+      <End Role="sinav_tablo" EntitySet="sinav_tablo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinav_tablo_soru1" Association="Self.FK_sinav_tablo_soru1">
       <End Role="soru" EntitySet="soru" />
       <End Role="sinav_tablo" EntitySet="sinav_tablo" />
     </AssociationSet>

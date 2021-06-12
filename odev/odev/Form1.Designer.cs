@@ -61,7 +61,7 @@ namespace odev
             // 
             this.textBox1.Location = new System.Drawing.Point(128, 106);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
+            this.textBox1.Size = new System.Drawing.Size(394, 20);
             this.textBox1.TabIndex = 2;
             // 
             // groupBox1
@@ -72,9 +72,9 @@ namespace odev
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(150, 76);
+            this.groupBox1.Location = new System.Drawing.Point(115, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(440, 404);
+            this.groupBox1.Size = new System.Drawing.Size(575, 521);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Giriş";
@@ -83,7 +83,7 @@ namespace odev
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(246, 268);
+            this.label3.Location = new System.Drawing.Point(444, 296);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 5;
@@ -93,9 +93,9 @@ namespace odev
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.GreenYellow;
-            this.button1.Location = new System.Drawing.Point(128, 214);
+            this.button1.Location = new System.Drawing.Point(128, 219);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 23);
+            this.button1.Size = new System.Drawing.Size(394, 51);
             this.button1.TabIndex = 4;
             this.button1.Text = "Giriş Yap";
             this.button1.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@ namespace odev
             this.textBox2.Location = new System.Drawing.Point(128, 164);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(196, 20);
+            this.textBox2.Size = new System.Drawing.Size(394, 20);
             this.textBox2.TabIndex = 3;
             // 
             // Form1
@@ -116,7 +116,10 @@ namespace odev
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(814, 607);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Yap";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

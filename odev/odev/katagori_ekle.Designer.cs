@@ -61,9 +61,9 @@ namespace odev
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(21, 21);
+            this.groupBox1.Location = new System.Drawing.Point(100, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(307, 381);
+            this.groupBox1.Size = new System.Drawing.Size(355, 381);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Katagori ekle";
@@ -104,9 +104,9 @@ namespace odev
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.GreenYellow;
-            this.button1.Location = new System.Drawing.Point(94, 265);
+            this.button1.Location = new System.Drawing.Point(21, 265);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 23);
+            this.button1.Size = new System.Drawing.Size(265, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Ekle";
             this.button1.UseVisualStyleBackColor = false;
@@ -136,7 +136,7 @@ namespace odev
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(21, 437);
+            this.groupBox2.Location = new System.Drawing.Point(508, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(307, 370);
             this.groupBox2.TabIndex = 1;
@@ -156,9 +156,9 @@ namespace odev
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.GreenYellow;
-            this.button2.Location = new System.Drawing.Point(88, 254);
+            this.button2.Location = new System.Drawing.Point(10, 265);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 23);
+            this.button2.Size = new System.Drawing.Size(267, 23);
             this.button2.TabIndex = 4;
             this.button2.Text = "Ekle";
             this.button2.UseVisualStyleBackColor = false;
@@ -208,9 +208,9 @@ namespace odev
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(372, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(861, 43);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(696, 381);
+            this.dataGridView1.Size = new System.Drawing.Size(147, 370);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -218,11 +218,14 @@ namespace odev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 921);
+            this.ClientSize = new System.Drawing.Size(1118, 504);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "katagori_ekle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "katagori_ekle";
             this.Load += new System.EventHandler(this.katagori_ekle_Load);
             this.groupBox1.ResumeLayout(false);

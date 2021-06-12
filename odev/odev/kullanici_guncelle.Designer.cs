@@ -302,7 +302,10 @@ namespace odev
             this.ClientSize = new System.Drawing.Size(1200, 709);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "kullanici_guncelle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "kullanici_guncelle";
             this.Load += new System.EventHandler(this.kullanici_guncelle_Load);
             this.groupBox1.ResumeLayout(false);

@@ -55,6 +55,7 @@ namespace odev
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sinavtabloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.test2DataSet16)).BeginInit();
             this.SuspendLayout();
@@ -64,9 +65,9 @@ namespace odev
             this.comboBox1.DataSource = this.sinavtabloBindingSource;
             this.comboBox1.DisplayMember = "Sınav_ad";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 135);
+            this.comboBox1.Location = new System.Drawing.Point(20, 174);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 21);
+            this.comboBox1.Size = new System.Drawing.Size(348, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "sinav_id";
             // 
@@ -83,27 +84,29 @@ namespace odev
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(22, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 13);
+            this.label1.Size = new System.Drawing.Size(54, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "AD";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 21);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(80, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 13);
+            this.label2.Size = new System.Drawing.Size(54, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "AD";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LawnGreen;
-            this.button1.Location = new System.Drawing.Point(25, 187);
+            this.button1.Location = new System.Drawing.Point(20, 226);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(265, 23);
+            this.button1.Size = new System.Drawing.Size(348, 32);
             this.button1.TabIndex = 3;
             this.button1.Text = "Başla";
             this.button1.UseVisualStyleBackColor = false;
@@ -112,9 +115,10 @@ namespace odev
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 95);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(20, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(118, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Sınav Seç";
             // 
@@ -154,46 +158,49 @@ namespace odev
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Location = new System.Drawing.Point(529, 497);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(331, 23);
+            this.button2.Size = new System.Drawing.Size(331, 53);
             this.button2.TabIndex = 8;
-            this.button2.Text = "İleri";
+            this.button2.Text = "İleri ->>>>";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.Location = new System.Drawing.Point(526, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(47, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Soru";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(720, 42);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(669, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.Size = new System.Drawing.Size(67, 29);
             this.label5.TabIndex = 10;
             this.label5.Text = "Skor";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(771, 42);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(756, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.Size = new System.Drawing.Size(27, 29);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Skor";
+            this.label6.Text = "0";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(296, 50);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(275, 51);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 25);
+            this.label7.Size = new System.Drawing.Size(75, 31);
             this.label7.TabIndex = 12;
             this.label7.Text = "Süre";
             // 
@@ -214,38 +221,41 @@ namespace odev
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.Location = new System.Drawing.Point(529, 245);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.Size = new System.Drawing.Size(99, 20);
             this.label9.TabIndex = 14;
             this.label9.Text = "Seçenekler";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.Location = new System.Drawing.Point(526, 383);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.Size = new System.Drawing.Size(98, 20);
             this.label10.TabIndex = 15;
             this.label10.Text = "Seçilen Şık";
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Fuchsia;
             this.button3.Location = new System.Drawing.Point(529, 446);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(331, 45);
             this.button3.TabIndex = 17;
             this.button3.Text = "Şıkı İşaretle";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.Location = new System.Drawing.Point(382, 50);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 25);
+            this.label12.Size = new System.Drawing.Size(41, 29);
             this.label12.TabIndex = 18;
             this.label12.Text = "dk";
             // 
@@ -279,11 +289,23 @@ namespace odev
             this.label11.Text = "label11";
             this.label11.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Crimson;
+            this.button4.Location = new System.Drawing.Point(864, 20);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(76, 32);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Çıkış";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // kullanici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 591);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -305,7 +327,10 @@ namespace odev
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "kullanici";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sinavtabloBindingSource)).EndInit();
@@ -342,5 +367,6 @@ namespace odev
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button4;
     }
 }

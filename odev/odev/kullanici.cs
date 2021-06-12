@@ -21,7 +21,7 @@ namespace odev
         private void Form2_Load(object sender, EventArgs e)
         {
             // TODO: Bu kod satırı 'test2DataSet16.sinav_tablo' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            
             label2.Text = session.kullaniciad;
 
 
@@ -61,49 +61,63 @@ namespace odev
             noDupes.RemoveAll(item => item == null);
             return noDupes;
         }
+        int gerisayac;
 
         private void button1_Click(object sender, EventArgs e)
         {
             kontrol = true;
             comboveri = comboBox1.Text;
             h = sorular(comboveri);
-            timer1.Start();
+            
             MessageBox.Show("Sınav Başlamıştır ");
+            var sorgu = (from c in db.sinav_tablo
+                         where c.Sınav_ad == comboveri
+                         select
+                         c.dk
+                             ).FirstOrDefault();
 
-
-
-
+            gerisayac = Convert.ToInt32(sorgu);
+            label12.Text = gerisayac.ToString();
+            
+            timer1.Start();
         }
         int sure;
-        int surex;
-        int saniye;
+        
+        int saniye=60;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label13.Text = saniye.ToString();
-            saniye++;
-            if (saniye== 60)
-            {
-                surex++;
-                saniye = 0;
-                label12.Text = surex.ToString();
-                
-                label13.Text = "";
-            }
-            if (surex==60)
+            if (gerisayac == 0)
             {
                 timer1.Stop();
-                MessageBox.Show("Sınav Bitmiştir ");
-                sayac = 0;
                 Database.kullanici_skor k = new Database.kullanici_skor();
                 k.kullanici_id = session.kullaniciid;
                 k.eniyi_skor = puan;
+                k.sinav_adi = comboBox1.Text;
                 db.kullanici_skor.Add(k);
                 db.SaveChanges();
-                
-                surex = 0;
-                saniye = 0;
-                timer1.Stop();
+                gerisayac = 0;
+                saniye = 60;
+                MessageBox.Show("Sınav Bitmiştir ");
+
+                button2.Enabled = !button2.Enabled;
+
+
+
             }
+
+            label12.Text = gerisayac.ToString();
+            label13.Text = saniye.ToString();
+            saniye--;
+            if (saniye==0)
+            {
+               
+                saniye = 60;
+                gerisayac--;
+                label12.Text = gerisayac.ToString();
+                
+            }
+
+         
         }
         int sayac = 0;
         int sorusayisi;
@@ -118,11 +132,14 @@ namespace odev
                 sayac = 0;
                 Database.kullanici_skor k = new Database.kullanici_skor();
                 k.kullanici_id = session.kullaniciid;
-
                 k.eniyi_skor = puan;
-
+                k.sinav_adi = comboBox1.Text;
                 db.kullanici_skor.Add(k);
                 db.SaveChanges();
+
+
+                timer1.Stop();
+                button2.Enabled = !button2.Enabled;
             }
             else
             {
@@ -194,7 +211,9 @@ namespace odev
             {
                 sayac = 0;
                 MessageBox.Show("Sınav Biti");
-              
+
+                
+
 
             }
             else if (label11.Text==textBox2.Text)
@@ -216,6 +235,13 @@ namespace odev
             }
             
             listBox1.Items.Clear();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 frm1 = new Form1();
+            frm1.Show();
+            this.Hide();
         }
     }
 }
