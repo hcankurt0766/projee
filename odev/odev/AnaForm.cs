@@ -69,7 +69,7 @@ namespace odev
             var blog = db.kullanici.Find(int.Parse(label3.Text));
             db.kullanici.Remove(blog);
             db.SaveChanges();
-            MessageBox.Show("Kulanıc Başarıylan Silindi ");
+            MessageBox.Show("Kullanıcı Başarıyla Silindi ");
             this.kullaniciTableAdapter.Fill(this.test2DataSet.kullanici);
 
         }
@@ -91,7 +91,7 @@ namespace odev
             {
                 this.Hide();
                 fmr1.Show();
-                MessageBox.Show("Hesanınız Aktif Değildir admin ile iletişime geçiniz");
+                MessageBox.Show("Hesabınız Aktif Değildir Admin ile İletişime Ggeçiniz");
                 timer1.Stop();
             }
 

@@ -110,7 +110,7 @@ namespace odev
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Katagori";
+            this.label1.Text = "Kategori";
             // 
             // test2DataSet14
             // 
@@ -148,9 +148,10 @@ namespace odev
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(15, 395);
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(15, 375);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 23);
+            this.button1.Size = new System.Drawing.Size(211, 68);
             this.button1.TabIndex = 6;
             this.button1.Text = "Soruyu Ekle";
             this.button1.UseVisualStyleBackColor = false;
@@ -171,7 +172,7 @@ namespace odev
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 21);
             this.button2.TabIndex = 7;
-            this.button2.Text = "Katagoriyi getir";
+            this.button2.Text = "Kategoriyi getir";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -215,9 +216,10 @@ namespace odev
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Fuchsia;
-            this.button3.Location = new System.Drawing.Point(15, 484);
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Location = new System.Drawing.Point(15, 449);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(619, 23);
+            this.button3.Size = new System.Drawing.Size(619, 82);
             this.button3.TabIndex = 12;
             this.button3.Text = "Sınavı kaydet";
             this.button3.UseVisualStyleBackColor = false;

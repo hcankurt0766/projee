@@ -107,7 +107,7 @@ namespace odev
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(420, 61);
             this.button7.TabIndex = 4;
-            this.button7.Text = "Katagori ekle";
+            this.button7.Text = "Kategori ekle";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -169,7 +169,7 @@ namespace odev
             this.groupBox2.Size = new System.Drawing.Size(944, 576);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kulanıcılar";
+            this.groupBox2.Text = "Kullanıcılar";
             // 
             // label4
             // 
@@ -205,7 +205,7 @@ namespace odev
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(129, 23);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Güncele";
+            this.button5.Text = "Güncelle";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -356,12 +356,6 @@ namespace odev
         private test2DataSet test2DataSet;
         private System.Windows.Forms.BindingSource kullaniciBindingSource;
         private test2DataSetTableAdapters.kullaniciTableAdapter kullaniciTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicimailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicisifreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -378,5 +372,11 @@ namespace odev
         private test2DataSet test2DataSet1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicimailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullanicisifreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
     }
 }

@@ -66,7 +66,7 @@ namespace odev
             this.groupBox1.Size = new System.Drawing.Size(355, 381);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Katagori ekle";
+            this.groupBox1.Text = "Kategori ekle";
             // 
             // groupBox3
             // 
@@ -119,7 +119,7 @@ namespace odev
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Katagori ad";
+            this.label1.Text = "Kategori ad";
             // 
             // textBox1
             // 
@@ -141,7 +141,7 @@ namespace odev
             this.groupBox2.Size = new System.Drawing.Size(307, 370);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Alt Katagori";
+            this.groupBox2.Text = "Alt Kategori";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label3
@@ -151,7 +151,7 @@ namespace odev
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Alt katagori ad";
+            this.label3.Text = "Alt kategori ad";
             // 
             // button2
             // 
@@ -199,7 +199,7 @@ namespace odev
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Katagori ad";
+            this.label2.Text = "Kategori ad";
             // 
             // kategoriTableAdapter
             // 

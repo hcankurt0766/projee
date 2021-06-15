@@ -91,7 +91,6 @@ namespace odev
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.button1);
@@ -118,7 +117,7 @@ namespace odev
             // 
             this.button4.BackColor = System.Drawing.Color.Bisque;
             this.button4.Location = new System.Drawing.Point(1062, 27);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(56, 19);
             this.button4.TabIndex = 12;
@@ -129,7 +128,7 @@ namespace odev
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(608, 64);
+            this.label6.Location = new System.Drawing.Point(1251, 599);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 11;
@@ -258,9 +257,9 @@ namespace odev
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Alt_katagori";
+            this.label2.Text = "Alt Kategori";
             // 
             // label1
             // 
@@ -269,7 +268,7 @@ namespace odev
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Katagori";
+            this.label1.Text = "Kategori";
             // 
             // comboBox2
             // 
@@ -431,7 +430,7 @@ namespace odev
             // 
             this.button3.BackColor = System.Drawing.Color.Tomato;
             this.button3.Location = new System.Drawing.Point(351, 358);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(56, 19);
             this.button3.TabIndex = 4;
@@ -443,8 +442,9 @@ namespace odev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 612);
+            this.ClientSize = new System.Drawing.Size(1196, 594);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView1);
